@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from '../Navbar/Navbar';
 import { useTelegramAuth } from '../../hooks/useTelegramAuth';
 import { getInitData } from '../../utils/getInitData';
+import './Layout.css';
 
 export const Layout = () => {
     const initData = getInitData();
@@ -17,7 +18,7 @@ export const Layout = () => {
 
     return (
         <>
-            <main>
+            <main className="layout">
                 <Outlet />
             </main>
             <Navbar />

@@ -1,7 +1,12 @@
 /* global.css */
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 
 body {
-    font-family: system-ui, sans-serif;
+    font-family: var(--font-main);
     background-color: #fff;
     color: #000;
 }
