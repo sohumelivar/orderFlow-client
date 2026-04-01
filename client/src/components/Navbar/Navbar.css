@@ -24,6 +24,10 @@
     color: var(--color-gray-1);
 }
 
+.nav-item.active {
+    color: var(--color-active)
+}
+
 .nav-item img {
     width: 15px;
     height: 15px;

@@ -1,4 +1,5 @@
 import './Navbar.css';
+import { NavLink } from 'react-router-dom';
 import OrdersIcon from '../../assets/icons/clipboard-list.svg?react';
 import PlusIcon from '../../assets/icons/plus.svg?react';
 import SquareCheckIcon from '../../assets/icons/square-check.svg?react';
@@ -8,25 +9,25 @@ import ChartNoAxesIcon from '../../assets/icons/chart-no-axes-combined.svg?react
 export const Navbar = () => {
     return (
         <nav className="navbar">
-            <div className="nav-item">
+            <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >
                 <OrdersIcon />
                 <span>ORDERS</span>
-            </div>
+            </NavLink >
 
-            <div className="nav-item">
+            <NavLink to="/create" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >
                 <PlusIcon />
                 <span>CREATE</span>
-            </div>
+            </NavLink >
 
-            <div className="nav-item">
+            <NavLink to="/completed" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >
                 <SquareCheckIcon />
                 <span>DONE</span>
-            </div>
+            </NavLink >
 
-            <div className="nav-item">
+            <NavLink to="/stats" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >
                 <ChartNoAxesIcon />
                 <span>STATS</span>
-            </div>
+            </NavLink >
         </nav>
     );
 };
