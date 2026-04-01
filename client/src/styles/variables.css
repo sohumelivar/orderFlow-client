@@ -2,8 +2,21 @@
     --font-main: 'Inter', sans-serif;   
 
     --color-bg-dark: rgba(10, 10, 10, 0.98);
-
     --color-gray-1: rgb(113, 113, 122);
-
+    --color-gray-2: rgba(41, 41, 46, 0.8);
     --color-active: #22c55e;
+    --color-white-label-1: #fafafa;
+    --color-white-label-2: #9f9d9d;
+    --color-status-waiting-border: rgb(245, 158, 11);
+    --color-status-in_progress-border: rgb(59, 130, 246);
+    --color-status-completed-border: #22c55e;
+
+    --font-size-8: 8px;
+    --font-size-9: 9px;
+    --font-size-11: 11px;
+    --font-size-12: 12px;
+    --font-size-14: 14px;
+    --font-size-15: 15px;
+    --font-size-21: 21px;
+
 }

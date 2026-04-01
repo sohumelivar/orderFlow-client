@@ -35,6 +35,6 @@
 }
 
 .nav-item span {
-    font-size: 9px;
+    font-size: var(--font-size-9);
     font-weight: 600;
 }
