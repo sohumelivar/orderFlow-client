@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { Navbar } from '../Navbar/Navbar';
-import { getInitData } from '../../utils/getInitData';
 import { authWithTelegram } from '../../api/auth';
 import { tokenService } from '../../api/token';
 
@@ -20,7 +19,7 @@ export const Layout = () => {
     const token = tokenService.getToken();
     if (token) return;
 
-    const initData = getInitData();
+    const initData = tg?.initData;;
     if (!initData) {
       console.log('No Telegram initData');
       return;
@@ -65,7 +64,6 @@ export const Layout = () => {
       WA: {String(!!window.Telegram?.WebApp)}
       <br />
       INIT: {window.Telegram?.WebApp?.initData || 'NO INIT DATA'}
-      initData:
     </div>
 
     <main className="layout">
