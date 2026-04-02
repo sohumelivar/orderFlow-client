@@ -9,11 +9,11 @@ export const Layout = () => {
     const { isLoading, error } = useTelegramAuth(initData);
 
     if (isLoading) {
-    return <div>Loading...</div>;
+        return <div>Loading...</div>;
     }
 
     if (error) {
-    return <div>Authorization error</div>;
+        console.log('error', error);
     }
 
     return (
