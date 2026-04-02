@@ -7,7 +7,7 @@ export const ActiveOrdersPage = () => {
         liquid_size: "3/8",
         length: 10,
         quantity: 5,
-        status: "waiting",
+        status: "in_progress",
         created_at: "2026-03-29T20:05:27.204Z",
         comment: "test comment",
         updated_at: "2026-03-29T20:05:27.204Z",
@@ -18,7 +18,6 @@ export const ActiveOrdersPage = () => {
             <div>
                 <OrderCard order={order}/>
             </div>
-
         </div>
     );
 };

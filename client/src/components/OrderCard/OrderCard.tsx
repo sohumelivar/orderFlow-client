@@ -3,6 +3,9 @@ import './OrderCard.css';
 import MessageSquare from '../../assets/icons/message-square-more.svg?react';
 import Pencil from '../../assets/icons/pencil.svg?react';
 import Trash from '../../assets/icons/trash-2.svg?react';
+import Play from '../../assets/icons/play.svg?react';
+import X from '../../assets/icons/x.svg?react';
+import SquareCheck from '../../assets/icons/square-check.svg?react';
 
 type Props = {
   order: OrderType;
@@ -16,7 +19,7 @@ export const OrderCard = ({ order }: Props) => {
         .split('T')[0];
 
     return (
-        <div className={`order-card order-card--${order.status}`}>
+        <div id={`order-${order.id}`} className={`order-card order-card--${order.status}`}>
             <div className="order-card__header">
                 <div className="order-card__sizes">
                     <div className="order-card__size">
@@ -30,15 +33,9 @@ export const OrderCard = ({ order }: Props) => {
                     </div>
                 </div>
                 <div className="order-card__actions">
-                    <MessageSquare 
-                        className={`action-icon ${hasMessage ? 'active' : 'disabled'}`}
-                    />
-                    <Pencil 
-                        className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}
-                    />
-                    <Trash 
-                        className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}
-                    />
+                    <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`}/>
+                    <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
+                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
                 </div>
             </div>
             <div className="order-card-divider"/>
@@ -64,7 +61,23 @@ export const OrderCard = ({ order }: Props) => {
                 </div>
             </div>
             <div className="order-card-divider"/>
-            <div className="order-card__button"></div>
+                {order.status === 'waiting' ? 
+                    <button className="button_waiting">
+                        <Play className='icon_play_button'/>
+                        <span>WAITING</span>
+                    </button> 
+                    :
+                    <div className='button_layout'>
+                        <button className="button_cancel">
+                            <X className='x_button_icon'/>
+                            <span>CANCEL</span>
+                        </button>
+                        <button className="button_complete">
+                            <SquareCheck className='complete_button_icon'/>
+                            <span>COMPLETE</span>
+                        </button>
+                    </div>
+                }
         </div>
     );
 };

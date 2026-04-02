@@ -10,6 +10,10 @@
     --color-status-waiting-border: rgb(245, 158, 11);
     --color-status-in_progress-border: rgb(59, 130, 246);
     --color-status-completed-border: #22c55e;
+    --color-button-waiting-yellow-1:  rgb(245, 158, 11);
+    --color-button-waiting-yellow-2: #f3db941a;
+    --color-button-cancel-border: rgb(237, 57, 16);
+    --color-red-background:rgb(70, 37, 30);
 
     --font-size-8: 8px;
     --font-size-9: 9px;
@@ -18,5 +22,4 @@
     --font-size-14: 14px;
     --font-size-15: 15px;
     --font-size-21: 21px;
-
 }
