@@ -26,7 +26,7 @@ export const Layout = () => {
       return;
     }
 
-    authWithTelegram({ initData })
+    authWithTelegram( initData )
       .then((data) => {
         console.log('Background auth success:', data);
       })

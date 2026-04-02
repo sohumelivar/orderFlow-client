@@ -1,10 +1,6 @@
 import { api } from './axios';
 import { tokenService } from './token';
 
-export type TelegramAuthRequest = {
-  initData: string;
-};
-
 type AuthResponse = {
     accessToken: string;
     user: {
@@ -14,7 +10,7 @@ type AuthResponse = {
     }
 };
 
-export const authWithTelegram = async (initData: TelegramAuthRequest): Promise<AuthResponse> => {
+export const authWithTelegram = async (initData: string): Promise<AuthResponse> => {
     const response = await api.post('/auth/telegram', {initData: initData});
     console.log('{initData}', {initData});
     
