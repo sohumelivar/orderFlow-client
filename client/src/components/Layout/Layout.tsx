@@ -21,6 +21,7 @@ export const Layout = () => {
             <main className="layout">
                 <Outlet />
             </main>
+            <div>{initData}</div>
             <Navbar />
         </>
     );
