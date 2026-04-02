@@ -36,14 +36,42 @@ export const Layout = () => {
   }, []);
 
   return (
+    // <>
+    //   <main className="layout">
+    //     <Outlet />
+    //   </main>
+    //     <div style={{ color: 'white', fontSize: 12 }}>
+    //     {window.Telegram?.WebApp?.initData || 'NO INIT DATA'}
+    //     </div>
+    //   <Navbar />
+    // </>
     <>
-      <main className="layout">
-        <Outlet />
-      </main>
-        <div style={{ color: 'white', fontSize: 12 }}>
-        {window.Telegram?.WebApp?.initData || 'NO INIT DATA'}
-        </div>
-      <Navbar />
-    </>
+    <div
+      style={{
+        position: 'fixed',
+        top: 10,
+        left: 10,
+        right: 10,
+        zIndex: 99999,
+        background: 'red',
+        color: 'white',
+        fontSize: 12,
+        padding: 10,
+        wordBreak: 'break-all',
+      }}
+    >
+      TG: {String(!!window.Telegram)}
+      <br />
+      WA: {String(!!window.Telegram?.WebApp)}
+      <br />
+      INIT: {window.Telegram?.WebApp?.initData || 'NO INIT DATA'}
+    </div>
+
+    <main className="layout">
+      <Outlet />
+    </main>
+
+    <Navbar />
+  </>
   );
 };
