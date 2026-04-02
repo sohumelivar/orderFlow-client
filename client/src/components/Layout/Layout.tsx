@@ -40,6 +40,9 @@ export const Layout = () => {
       <main className="layout">
         <Outlet />
       </main>
+        <div style={{ color: 'white', fontSize: 12 }}>
+        {window.Telegram?.WebApp?.initData || 'NO INIT DATA'}
+        </div>
       <Navbar />
     </>
   );
