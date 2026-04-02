@@ -6,7 +6,7 @@ import './Layout.css';
 
 export const Layout = () => {
     const initData = getInitData();
-    const { isLoading, isAuthorized, error } = useTelegramAuth(initData);
+    const { isLoading, error } = useTelegramAuth(initData);
 
     if (isLoading) {
     return <div>Loading...</div>;

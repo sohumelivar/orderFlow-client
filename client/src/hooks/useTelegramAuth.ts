@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { authWithTelegram, type TelegramAuthRequest } from '../api/auth';
+import { authWithTelegram } from '../api/auth';
 import { tokenService } from '../api/token';
 
 export const useTelegramAuth = (initData: string) => {
