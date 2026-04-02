@@ -17,7 +17,7 @@ export const useTelegramAuth = (initData: string) => {
 
         setIsLoading(true);
 
-        authWithTelegram({initData})
+        authWithTelegram(initData)
             .then(() => {
                 setIsAuthorized(true);
             })
