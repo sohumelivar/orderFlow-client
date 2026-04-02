@@ -15,7 +15,7 @@ type AuthResponse = {
 };
 
 export const authWithTelegram = async (initData: TelegramAuthRequest): Promise<AuthResponse> => {
-    const response = await api.post('/auth/telegram', initData);
+    const response = await api.post('/auth/telegram', {initData});
 
     const data = response.data as AuthResponse;
 

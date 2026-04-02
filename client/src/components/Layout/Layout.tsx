@@ -65,6 +65,7 @@ export const Layout = () => {
       WA: {String(!!window.Telegram?.WebApp)}
       <br />
       INIT: {window.Telegram?.WebApp?.initData || 'NO INIT DATA'}
+      initData:
     </div>
 
     <main className="layout">
