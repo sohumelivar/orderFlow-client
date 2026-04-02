@@ -10,3 +10,7 @@ export type OrderType = {
   updated_at?: string;
   completed_at: string | null
 };
+
+export type ActiveOrdersResponse = {
+  orders: OrderType[];
+};

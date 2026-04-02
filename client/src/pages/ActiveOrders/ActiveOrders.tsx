@@ -1,23 +1,26 @@
-import { OrderCard } from "../../components/OrderCard/OrderCard";
+import { useEffect, useState } from 'react';
+import { OrderCard } from '../../components/OrderCard/OrderCard';
+import { getActiveOrders } from '../../api/orders';
+import type { OrderType } from '../../types/order.types';
 
 export const ActiveOrdersPage = () => {
-    const order = {
-        id: 1,
-        suction_size: "3/4",
-        liquid_size: "3/8",
-        length: 10,
-        quantity: 5,
-        status: "in_progress",
-        created_at: "2026-03-29T20:05:27.204Z",
-        comment: "test comment",
-        updated_at: "2026-03-29T20:05:27.204Z",
-        completed_at: null
-    }
+  const [orders, setOrders] = useState<OrderType[]>([]);
+
+    useEffect(() => {
+        getActiveOrders()
+            .then((data) => {
+                setOrders(data.orders);
+            })
+            .catch((error) => {
+                console.error('Failed to load active orders:', error);
+        });
+    }, []);
+
     return (
         <div>
-            <div>
-                <OrderCard order={order}/>
-            </div>
+            {orders.map((order) => (
+                <OrderCard key={order.id} order={order} />
+            ))}
         </div>
     );
 };
