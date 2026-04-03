@@ -1,33 +1,48 @@
 import { useEffect, useState } from 'react';
 import { authWithTelegram } from '../api/auth';
 import { tokenService } from '../api/token';
+import { getInitData } from '../utils/getInitData';
 
-export const useTelegramAuth = (initData: string) => {
+export const useTelegramAuth = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [error, setError] = useState<unknown>(null);
 
     useEffect(() => {
-        const token = tokenService.getToken();
+    const tg = window.Telegram?.WebApp;
 
-        if (token) {
-            setIsAuthorized(true);
-            return;
-        }
+    if (tg) {
+        tg.ready();
+        tg.expand();
+    }
 
-        setIsLoading(true);
+    const token = tokenService.getToken();
 
-        authWithTelegram(initData)
-            .then(() => {
-                setIsAuthorized(true);
-            })
-            .catch((err) => {
-                setError(err);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-    }, [initData]);
+    if (token) {
+        setIsAuthorized(true);
+        return;
+    }
+
+    const initData = getInitData();
+
+    if (!initData) {
+        setError(new Error('Telegram initData is not available'));
+        return;
+    }
+
+    setIsLoading(true);
+
+    authWithTelegram(initData)
+        .then(() => {
+        setIsAuthorized(true);
+        })
+        .catch((err) => {
+        setError(err);
+        })
+        .finally(() => {
+        setIsLoading(false);
+        });
+    }, []);
 
     return { isLoading, isAuthorized, error };
 };
