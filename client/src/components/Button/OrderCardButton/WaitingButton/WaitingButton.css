@@ -1,0 +1,18 @@
+.button_waiting {
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    height: 42px;
+    border: 3px solid var(--color-button-waiting-yellow-1);
+    display: flex;
+    align-items: center;       /* вертикально центр */
+    justify-content: center; 
+    gap: 8px;
+    background-color: var(--color-button-waiting-yellow-2);
+    border-radius: 8px;
+    color: var(--color-button-waiting-yellow-1);
+}
+
+.icon_play_button {
+    width: 16px;
+}

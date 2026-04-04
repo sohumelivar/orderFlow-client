@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { OrderCard } from '../../components/OrderCard/OrderCard';
 import { getActiveOrders } from '../../api/orders';
 import type { OrderType } from '../../types/order.types';
+import './ActiveOrders.css';
 
 export const ActiveOrdersPage = () => {
   const [orders, setOrders] = useState<OrderType[]>([]);
@@ -17,7 +18,7 @@ export const ActiveOrdersPage = () => {
     }, []);
 
     return (
-        <div>
+        <div className='orderList'>
             {orders.map((order) => (
                 <OrderCard key={order.id} order={order} />
             ))}

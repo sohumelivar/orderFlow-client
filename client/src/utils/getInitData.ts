@@ -7,4 +7,3 @@ export const getInitData = (): string => {
 
 	return import.meta.env.VITE_DEV_INIT_DATA ?? '';
 };
-

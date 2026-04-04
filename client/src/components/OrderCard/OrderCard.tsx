@@ -6,6 +6,9 @@ import Trash from '../../assets/icons/trash-2.svg?react';
 import Play from '../../assets/icons/play.svg?react';
 import X from '../../assets/icons/x.svg?react';
 import SquareCheck from '../../assets/icons/square-check.svg?react';
+import { WaitingButton } from '../Button/OrderCardButton/WaitingButton/WaitingButton';
+import { CancelButton } from '../Button/OrderCardButton/CancelButton/CancelButton';
+import { CompleteButton } from '../Button/OrderCardButton/CompleteButton/CompleteButton';
 
 type Props = {
   order: OrderType;
@@ -62,20 +65,11 @@ export const OrderCard = ({ order }: Props) => {
             </div>
             <div className="order-card-divider"/>
                 {order.status === 'waiting' ? 
-                    <button className="button_waiting">
-                        <Play className='icon_play_button'/>
-                        <span>WAITING</span>
-                    </button> 
+                    <WaitingButton />
                     :
                     <div className='button_layout'>
-                        <button className="button_cancel">
-                            <X className='x_button_icon'/>
-                            <span>CANCEL</span>
-                        </button>
-                        <button className="button_complete">
-                            <SquareCheck className='complete_button_icon'/>
-                            <span>COMPLETE</span>
-                        </button>
+                        <CancelButton />
+                        <CompleteButton />
                     </div>
                 }
         </div>

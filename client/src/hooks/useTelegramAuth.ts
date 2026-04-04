@@ -9,39 +9,39 @@ export const useTelegramAuth = () => {
     const [error, setError] = useState<unknown>(null);
 
     useEffect(() => {
-    const tg = window.Telegram?.WebApp;
+        const tg = window.Telegram?.WebApp;
 
-    if (tg) {
-        tg.ready();
-        tg.expand();
-    }
+        if (tg) {
+            tg.ready();
+            tg.expand();
+        }
 
-    const token = tokenService.getToken();
+        const token = tokenService.getToken();
 
-    if (token) {
-        setIsAuthorized(true);
-        return;
-    }
+        if (token) {
+            setIsAuthorized(true);
+            return;
+        }
 
-    const initData = getInitData();
+        const initData = getInitData();
 
-    if (!initData) {
-        setError(new Error('Telegram initData is not available'));
-        return;
-    }
+        if (!initData) {
+            setError(new Error('Telegram initData is not available'));
+            return;
+        }
 
-    setIsLoading(true);
+        setIsLoading(true);
 
-    authWithTelegram(initData)
-        .then(() => {
-        setIsAuthorized(true);
-        })
-        .catch((err) => {
-        setError(err);
-        })
-        .finally(() => {
-        setIsLoading(false);
-        });
+        authWithTelegram(initData)
+            .then(() => {
+            setIsAuthorized(true);
+            })
+            .catch((err) => {
+            setError(err);
+            })
+            .finally(() => {
+            setIsLoading(false);
+            });
     }, []);
 
     return { isLoading, isAuthorized, error };

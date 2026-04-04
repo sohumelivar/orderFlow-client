@@ -5,18 +5,14 @@ import { useTelegramAuth } from '../../hooks/useTelegramAuth';
 import './Layout.css';
 
 export const Layout = () => {
-  const { error } = useTelegramAuth();
+	useTelegramAuth();
 
-  if (error) {
-    console.error('Telegram auth error:', error);
-  }
-
-  return (
-  <>
-    <main className="layout">
-      <Outlet />
-    </main>
-    <Navbar />
-  </>
-  );
+	return (
+		<>
+			<main className="layout">
+				<Outlet />
+			</main>
+			<Navbar />
+		</>
+	);
 };
