@@ -9,9 +9,10 @@ import { CompleteButton } from '../Button/OrderCardButton/CompleteButton/Complet
 
 type Props = {
   order: OrderType;
+  openTestModal: (orderId: number) => void;
 };
 
-export const OrderCard = ({ order }: Props) => {
+export const OrderCard = ({ order, openTestModal }: Props) => {
     const hasMessage = Boolean(order.comment);
     const orderStatus = order.status;
     const formattedDate = new Date(order.created_at)
@@ -35,7 +36,7 @@ export const OrderCard = ({ order }: Props) => {
                 <div className="order-card__actions">
                     <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`}/>
                     <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
-                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
+                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => openTestModal(order.id)}/>
                 </div>
             </div>
             <div className="order-card-divider"/>

@@ -1,28 +1,37 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { OrderCard } from '../../components/OrderCard/OrderCard';
-import { getActiveOrders } from '../../api/orders';
 import './ActiveOrders.css';
 import { useOrdersStore } from '../../store/ordersStore';
+import { Modal } from '../../components/Modal/Modal';
+import { DeleteModal } from '../../components/Modal/DeleteModal/DeleteModal';
+import { useActiveOrders } from '../../hooks/useActiveOrders';
 
 export const ActiveOrdersPage = () => {
+    useActiveOrders();
     const orders = useOrdersStore((state) => state.orders);
-    const setOrders = useOrdersStore((state) => state.setOrders);
+    const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
+    const closeModal = () => setModalContent(null);
 
-    useEffect(() => {
-        getActiveOrders()
-            .then((data) => {
-                setOrders(data.orders);
-            })
-            .catch((error) => {
-                console.error('Failed to load active orders:', error);
-        });
-    }, [setOrders]);
+    const openTestModal = (orderId: number) => {
+        setModalContent(<DeleteModal orderId={orderId}/>);
+    };
 
     return (
-        <div className='orderList'>
-            {orders.map((order) => (
-                <OrderCard key={order.id} order={order} />
-            ))}
-        </div>
+        <>
+            <div className='orderList'>
+                {orders.map((order) => (
+                    <OrderCard 
+                        key={order.id}
+                        order={order}
+                        openTestModal={openTestModal}
+                    />
+                ))}
+            </div>
+
+            <Modal isOpen={!!modalContent} onClose={closeModal}>
+                {modalContent}
+            </Modal>
+        </>
+        
     );
 };
