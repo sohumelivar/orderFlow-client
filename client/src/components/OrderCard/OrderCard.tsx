@@ -62,10 +62,10 @@ export const OrderCard = ({ order }: Props) => {
             </div>
             <div className="order-card-divider"/>
                 {order.status === 'waiting' ? 
-                    <WaitingButton />
+                    <WaitingButton orderId={order.id}/>
                     :
                     <div className='button_layout'>
-                        <CancelButton />
+                        <CancelButton orderId={order.id}/>
                         <CompleteButton />
                     </div>
                 }

@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { OrderCard } from '../../components/OrderCard/OrderCard';
 import { getActiveOrders } from '../../api/orders';
-import type { OrderType } from '../../types/order.types';
 import './ActiveOrders.css';
+import { useOrdersStore } from '../../store/ordersStore';
 
 export const ActiveOrdersPage = () => {
-  const [orders, setOrders] = useState<OrderType[]>([]);
+    const orders = useOrdersStore((state) => state.orders);
+    const setOrders = useOrdersStore((state) => state.setOrders);
 
     useEffect(() => {
         getActiveOrders()
@@ -15,7 +16,7 @@ export const ActiveOrdersPage = () => {
             .catch((error) => {
                 console.error('Failed to load active orders:', error);
         });
-    }, []);
+    }, [setOrders]);
 
     return (
         <div className='orderList'>
