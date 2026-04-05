@@ -14,3 +14,8 @@ export const updateOrderStatus = async (orderId: number): Promise<UpdateOrderSta
     const response = await api.patch(`/orders/update-status/${orderId}`);
     return response.data;
 };
+
+export const deleteOrder = async (orderId: number) => {
+    const response = await api.delete(`/orders/delete/${orderId}`);
+    return response.data;
+};

@@ -14,7 +14,7 @@
     position: relative;
     width: calc(100% - 32px);
     max-width: 420px;
-    background: #111;
+    background: var(--color-gray-2);
     border-radius: 16px;
     padding: 20px;
 }

@@ -5,6 +5,7 @@ type OrdersState = {
     orders: OrderType[];
     setOrders: (orders: OrderType[]) => void;
     updateOrder: (updatedOrder: OrderType) => void;
+    removeOrder: (orderId: number) => void;
 };
 
 export const useOrdersStore = create<OrdersState>((set) => ({
@@ -17,5 +18,10 @@ export const useOrdersStore = create<OrdersState>((set) => ({
             orders: state.orders.map((order) =>
                 order.id === updatedOrder.id ? updatedOrder : order
             ),
+        })),
+
+    removeOrder: (orderId: number) => 
+        set((state) => ({
+            orders: state.orders.filter(order => order.id !== orderId),
         })),
 }));

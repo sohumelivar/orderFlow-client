@@ -5,15 +5,28 @@ import { useOrdersStore } from '../../store/ordersStore';
 import { Modal } from '../../components/Modal/Modal';
 import { DeleteModal } from '../../components/Modal/DeleteModal/DeleteModal';
 import { useActiveOrders } from '../../hooks/useActiveOrders';
+import { deleteOrder } from '../../api/orders';
 
 export const ActiveOrdersPage = () => {
     useActiveOrders();
     const orders = useOrdersStore((state) => state.orders);
+    const removeOrder = useOrdersStore(state => state.removeOrder);
     const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
     const closeModal = () => setModalContent(null);
 
-    const openTestModal = (orderId: number) => {
-        setModalContent(<DeleteModal orderId={orderId}/>);
+    const handleDeleteOrder = async (oderdId: number) => {
+        try {
+            await deleteOrder(oderdId);
+            removeOrder(oderdId);
+        } catch (error) {
+            console.log('error', error);
+        } finally {
+            closeModal();
+        };
+    };
+
+    const deleteOrderModal = (orderId: number) => {
+        setModalContent(<DeleteModal orderId={orderId} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={closeModal} />);
     };
 
     return (
@@ -23,7 +36,7 @@ export const ActiveOrdersPage = () => {
                     <OrderCard 
                         key={order.id}
                         order={order}
-                        openTestModal={openTestModal}
+                        openTestModal={deleteOrderModal}
                     />
                 ))}
             </div>
