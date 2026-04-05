@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ActiveOrdersPage } from "./pages/ActiveOrders/ActiveOrders";
 import { CompletedOrders } from "./pages/CompletedOrderd/CompletedOrders";
 import { Layout } from "./components/Layout/Layout";
+import { CreateOrder } from "./pages/CreateOrder/CreateOrder";
 
 function App() {
 return (
@@ -10,6 +11,7 @@ return (
 			<Route  element={<Layout />}>
 				<Route path="/" element={<ActiveOrdersPage/>} />
 				<Route path="/completed" element={<CompletedOrders/>} />
+				<Route path="/create" element={<CreateOrder/>} />
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Route>
 		</Routes>

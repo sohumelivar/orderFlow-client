@@ -1,0 +1,14 @@
+.createOrder {
+    color: var(--color-white-label-1);
+}
+
+.inputSuctionSize {
+    height: 48px;
+} 
+
+.inputName {
+    font-size: 11px;
+    color: var(--color-gray-1);
+    font-family: Inter, apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    font-weight: 600,
+}
