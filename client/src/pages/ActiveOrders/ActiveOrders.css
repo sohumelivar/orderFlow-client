@@ -3,3 +3,22 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.pageWrapper {
+    height: 70px;
+    margin-top: 8px;
+}
+
+.active-page-header {
+    color: var(--color-white-label-1);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 0 7px;
+}
+
+.ordersCount {
+    color: var(--color-gray-1);
+    padding: 0 7px;
+    font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+}

@@ -32,6 +32,14 @@ export const ActiveOrdersPage = () => {
     return (
         <>
             <div className='orderList'>
+                <div className='pageWrapper'>
+                    <div className='active-page-header'>
+                        ACTIVE ORDERS
+                    </div>
+                    <div className='ordersCount'>
+                        4 orders
+                    </div>
+                </div>
                 {orders.map((order) => (
                     <OrderCard 
                         key={order.id}
