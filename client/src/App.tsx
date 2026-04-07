@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ActiveOrdersPage } from "./pages/ActiveOrders/ActiveOrders";
-import { CompletedOrders } from "./pages/CompletedOrderd/CompletedOrders";
+import { CompletedOrders } from "./pages/CompletedOrders/CompletedOrders";
 import { Layout } from "./components/Layout/Layout";
 import { CreateOrder } from "./pages/CreateOrder/CreateOrder";
 

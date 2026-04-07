@@ -51,7 +51,11 @@ export const CreateOrder = () => {
         <div className='createOrder'>
             <h3>NEW ORDER</h3>
             <div className='suctionSize'>
-                <select value={form.suction_size} onChange={handleTubePairChange}>
+                <select 
+                    value={form.suction_size}
+                    onChange={handleTubePairChange}
+                    className="select"    
+                >
                 <option value="">Select tube pair</option>
                 {tubePairs.map((pair) => (
                     <option key={pair.suction_size} value={pair.suction_size}>

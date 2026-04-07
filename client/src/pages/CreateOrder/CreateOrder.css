@@ -12,3 +12,19 @@
     font-family: Inter, apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
     font-weight: 600,
 }
+
+.select {
+    width: 100%;
+    padding: 14px 16px;
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    cursor: pointer;
+}
