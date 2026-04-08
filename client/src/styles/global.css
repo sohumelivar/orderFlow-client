@@ -1,8 +1,12 @@
 /* global.css */
 #root {
-  max-width: 480px;
-  margin: 0 auto;
-  min-height: 100vh;
+	max-width: 480px;
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+html, body {
+  	overscroll-behavior: none;
 }
 
 body {
