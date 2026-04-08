@@ -14,7 +14,7 @@ export const useTelegramAuth = () => {
         if (tg) {
             tg.ready();
             tg.expand();
-            (tg as any).enableClosingConfirmation();
+            (tg as any).disableVerticalSwipes?.();
         }
 
         const token = tokenService.getToken();
