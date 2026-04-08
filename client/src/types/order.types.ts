@@ -1,16 +1,31 @@
 export type OrderType = {
-  id: number;
-  suction_size: string;
-  liquid_size: string;
-  length: number;
-  quantity: number;
-  status: string;
-  created_at: string;
-  comment?: string;
-  updated_at?: string;
-  completed_at: string | null
+	id: number;
+	suction_size: string;
+	liquid_size: string;
+	length: number;
+	quantity: number;
+	status: string;
+	created_at: string;
+	comment?: string;
+	updated_at?: string;
+	completed_at: string | null
+};
+
+export type CreateOrder = {
+	suction_size: string;
+	liquid_size: string;
+	length: number | null;
+	quantity: number | null;
+	price_per_meter: number | null;
+	comment?: string;
 };
 
 export type ActiveOrdersResponse = {
-  orders: OrderType[];
+	orders: OrderType[];
+};
+
+export type PipePair = {
+	suction_size: string;
+	liquid_size: string;
+	display_name: string;
 };

@@ -1,12 +1,11 @@
 .orderList {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
-.pageWrapper {
+.headerWrapper {
     height: 70px;
-    margin-top: 8px;
 }
 
 .active-page-header {

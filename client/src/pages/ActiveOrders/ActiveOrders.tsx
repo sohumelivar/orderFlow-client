@@ -32,7 +32,7 @@ export const ActiveOrdersPage = () => {
     return (
         <>
             <div className='orderList'>
-                <div className='pageWrapper'>
+                <div className='headerWrapper'>
                     <div className='active-page-header'>
                         ACTIVE ORDERS
                     </div>
