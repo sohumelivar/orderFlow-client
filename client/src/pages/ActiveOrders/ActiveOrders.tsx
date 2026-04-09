@@ -25,6 +25,9 @@ export const ActiveOrdersPage = () => {
         };
     };
 
+    console.log('orders', orders);
+    
+
     const deleteOrderModal = (orderId: number) => {
         setModalContent(<DeleteModal orderId={orderId} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={closeModal} />);
     };
@@ -37,7 +40,7 @@ export const ActiveOrdersPage = () => {
                         ACTIVE ORDERS
                     </div>
                     <div className='ordersCount'>
-                        4 orders
+                        {orders.length === 1 ? `${orders.length} ORDER` : `${orders.length} ORDERS`}
                     </div>
                 </div>
                 {orders.map((order) => (

@@ -11,3 +11,8 @@
     height: 70px;
     padding: 0 7px;
 }
+
+.testDiv {
+    background-color: aqua;
+    color: red;
+}

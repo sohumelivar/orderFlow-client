@@ -13,7 +13,7 @@ export const CreateOrder = () => {
             resetNewOrder();
         };
     }, []);
-    console.log('newOrder: ', newOrder.suction_size);
+    console.log('newOrder: ', newOrder);
 
     return (
         <div className='createOrderWrapper'>
@@ -21,6 +21,22 @@ export const CreateOrder = () => {
                 NEW ORDER
             </div>
             <CustomTubeSelect />
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+            <div className='testDiv'>testetstetstetstetstetstetstetstetst</div>
+
         </div>
     );
 };

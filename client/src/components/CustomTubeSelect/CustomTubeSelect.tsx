@@ -38,8 +38,6 @@ export const CustomTubeSelect = () => {
     };
 
     const handleSelectTubeSize = (event: React.MouseEvent<HTMLDivElement>) => {
-        console.log('event: ', event.currentTarget);
-        
         const displayName = event.currentTarget.textContent;
         const pipePair = pipePairs.find((el) => el.display_name === displayName);
         if (!pipePair) return
@@ -54,9 +52,11 @@ export const CustomTubeSelect = () => {
         <div ref={ref} className='tubeWrap'>
                 <div className={`tubeSize`}>TUBE SIZE</div>
                 <div className={`tubeOptions ${activeOption}`} onClick={(e) => handleSelectOptions(e, hiddenBlock)}>{tubeSizeInput}</div>
-                {pipePairs.map((el) => (
-                    <div key={el.display_name} className={`tubeOptions ${hiddenBlock}`} onClick={handleSelectTubeSize}>{el.display_name}</div>
-                ))}
+                <div className={`tubeDropwown ${hiddenBlock}`}>
+                    {pipePairs.map((el) => (
+                        <div key={el.display_name} className={`tubeOptions`} onClick={handleSelectTubeSize}>{el.display_name}</div>
+                    ))}
+                </div>
                 <div className=''></div>
               
         </div>
