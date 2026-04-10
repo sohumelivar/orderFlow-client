@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { OrderType, CreateOrder } from '../types/order.types';
+import { initialNewOrder } from '../constants/newOrder';
 
 type OrdersState = {
     orders: OrderType[];
@@ -15,15 +16,6 @@ type OrdersState = {
     setQuantity: (value: number) => void;
     setPricePerMeter: (value: number) => void;
     setComment: (value: string) => void;
-};
-
-const initialNewOrder = {
-  suction_size: '',
-  liquid_size: '',
-  length: null,
-  quantity: null,
-  price_per_meter: null,
-  comment: '',
 };
 
 export const useOrdersStore = create<OrdersState>((set) => ({

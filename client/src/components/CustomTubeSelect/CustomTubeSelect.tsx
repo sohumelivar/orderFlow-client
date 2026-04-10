@@ -57,8 +57,6 @@ export const CustomTubeSelect = () => {
                         <div key={el.display_name} className={`tubeOptions`} onClick={handleSelectTubeSize}>{el.display_name}</div>
                     ))}
                 </div>
-                <div className=''></div>
-              
         </div>
     );
 };
