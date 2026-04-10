@@ -1,4 +1,4 @@
-.lengthWrap {
+.quantityWrap {
     margin-top: 15px;
     color: var(--color-gray-1);
     font-size: 11px;
@@ -6,12 +6,12 @@
     position: relative;
 }
 
-.lengthTitle {
+.quantityTitle {
     margin: 0 7px;
     margin-bottom: 2px;
 }
 
-.lengthOption {
+.quantityOptions {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -35,7 +35,7 @@
     border: 1px solid var(--color-status-completed-border)
 }
 
-.lengthDropdown {
+.quantityDropDown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -45,7 +45,7 @@
     overflow-y: auto;
 }
 
-.lengthNumbers {
+.quantityNumbers {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -3,6 +3,7 @@ import { CustomTubeSelect } from '../../components/CustomTubeSelect/CustomTubeSe
 import { useOrdersStore } from '../../store/ordersStore';
 import { useEffect } from 'react';
 import { CustomLengthSelect } from '../../components/CustomLengthSelect/CustomLengthSelect';
+import { CustomQuantitySelect } from '../../components/CustomQuantitySelect/CustomQuantitySelect';
 
 export const CreateOrder = () => {
     const newOrder = useOrdersStore((state) => state.newOrder);
@@ -23,6 +24,7 @@ export const CreateOrder = () => {
             </div>
             <CustomTubeSelect />
             <CustomLengthSelect />
+            <CustomQuantitySelect />
         </div>
     );
 };

@@ -6,9 +6,9 @@ export const CustomLengthSelect = () => {
     const [lengthInput, setLengthInput] = useState('SELECT LENGTH');
     const [hiddenBlock, setHiddenBlock] = useState('hidden');
     const [activeOption, setActiveOption] = useState('');
+    const setLength = useOrdersStore((state) => state.setLength);
     const ref = useRef<HTMLDivElement>(null);
     const refToScroll = useRef<HTMLDivElement>(null);
-    const setLength = useOrdersStore((state) => state.setLength);
 
     useEffect(() => {
         const handleClick = (e: MouseEvent) => {
@@ -25,7 +25,7 @@ export const CustomLengthSelect = () => {
     }, []);
     
 
-    const handleSelectOptions = (event: React.MouseEvent<HTMLDivElement>, hiddenBlock: string) => {
+    const handleSelectOptions = (event: React.MouseEvent<HTMLDivElement>, hiddenBlock: string) => {        
         const isActiveOption = event.currentTarget.className.split(' ');
         if (isActiveOption[1] === 'activeOption') {
             setActiveOption('');
