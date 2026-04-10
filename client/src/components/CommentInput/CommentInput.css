@@ -1,24 +1,25 @@
-/* TUBE SELECT -------------------------------------------------- */
-
-.tubeWrap {
+.commentInputWrap {
+    margin-top: 15px;
     color: var(--color-gray-1);
     font-size: 11px;
     font-weight: 600;
     position: relative;
 }
 
-.tubeSize {
+.commentTitle {
     margin: 0 7px;
-    margin-bottom: 2px;
+    margin-bottom: 2px;    
 }
 
-.tubeOptions {
+.commentInput {
     display: flex;
-    align-items: center;
     cursor: pointer;
     padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    width: calc(100% - 14px);
     margin: 0 7px;
-    height: 48px;
+    height: 96px;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 400;
@@ -26,24 +27,14 @@
     color: var(--color-gray-1);
     user-select: none;
     background-color: var(--color-gray-3);
+    outline: none;
 }
 
-.optionsColor {
-    background-color: var(--color-green);
-}
-
-.hidden {
-    display: none;
+input:focus {
+    outline: none;
 }
 
 .activeOption {
     border: 1px solid var(--color-status-completed-border);
-}
-
-.tubeDropwown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 200;
+    background-color: var(--color-green);
 }

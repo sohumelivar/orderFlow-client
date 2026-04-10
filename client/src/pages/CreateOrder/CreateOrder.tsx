@@ -4,6 +4,7 @@ import { useOrdersStore } from '../../store/ordersStore';
 import { useEffect } from 'react';
 import { CustomLengthSelect } from '../../components/CustomLengthSelect/CustomLengthSelect';
 import { CustomQuantitySelect } from '../../components/CustomQuantitySelect/CustomQuantitySelect';
+import { CommentInput } from '../../components/CommentInput/CommentInput';
 
 export const CreateOrder = () => {
     const newOrder = useOrdersStore((state) => state.newOrder);
@@ -25,6 +26,7 @@ export const CreateOrder = () => {
             <CustomTubeSelect />
             <CustomLengthSelect />
             <CustomQuantitySelect />
+            <CommentInput />
         </div>
     );
 };

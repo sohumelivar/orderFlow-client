@@ -22,7 +22,7 @@ export const CustomQuantitySelect = () => {
             return () => {
                 document.removeEventListener('click', handleClick);
             };
-        }, []);
+    }, []);
     
     const handleSelectOptions = (event: React.MouseEvent<HTMLDivElement>, hiddenBlock: string) => {
         const isActiveOption = event.currentTarget.className.split(' ');

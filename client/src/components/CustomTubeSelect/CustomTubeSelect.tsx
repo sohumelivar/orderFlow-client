@@ -54,7 +54,7 @@ export const CustomTubeSelect = () => {
                 <div className={`tubeOptions ${activeOption}`} onClick={(e) => handleSelectOptions(e, hiddenBlock)}>{tubeSizeInput}</div>
                 <div className={`tubeDropwown ${hiddenBlock}`}>
                     {pipePairs.map((el) => (
-                        <div key={el.display_name} className={`tubeOptions`} onClick={handleSelectTubeSize}>{el.display_name}</div>
+                        <div key={el.display_name} className={`tubeOptions optionsColor`} onClick={handleSelectTubeSize}>{el.display_name}</div>
                     ))}
                 </div>
         </div>
