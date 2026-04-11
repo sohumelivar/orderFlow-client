@@ -11,8 +11,6 @@ import { TotalPrice } from '../../components/TotalPrice/TotalPrice';
 import { CreateNewOrderButton } from '../../components/Button/newOrderButton/CreateNewOrderButton/CreateNewOrderButton';
 
 export const CreateOrder = () => {
-    const newOrder = useOrdersStore((state) => state.newOrder);
-    
     const resetNewOrder = useOrdersStore((state) => state.resetNewOrder);
     useEffect(() => {
         return () => {
