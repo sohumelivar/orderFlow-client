@@ -6,6 +6,7 @@ type OrdersState = {
     orders: OrderType[];
     newOrder: CreateOrder;
     setOrders: (orders: OrderType[]) => void;
+    addOrder: (order: OrderType) => void;
     updateOrder: (updatedOrder: OrderType) => void;
     removeOrder: (orderId: number) => void;
     updateNewOrderField: (newOrder: CreateOrder) => void;
@@ -22,6 +23,11 @@ export const useOrdersStore = create<OrdersState>((set) => ({
     orders: [],
     newOrder: {...initialNewOrder},
     setOrders: (orders) => set({orders}),
+
+    addOrder: (order) =>
+        set((state) => ({
+            orders: [...state.orders, order]
+        })),
 
     updateOrder: (updatedOrder) =>
         set((state) => ({

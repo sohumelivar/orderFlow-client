@@ -1,8 +1,8 @@
 export const initialNewOrder = {
     suction_size: '',
     liquid_size: '',
-    length: null,
-    quantity: null,
-    price_per_meter: null,
+    length: 0,
+    quantity: 0,
+    price_per_meter: 2.5,
     comment: '',
 };

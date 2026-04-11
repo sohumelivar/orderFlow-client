@@ -5,6 +5,10 @@ import { useEffect } from 'react';
 import { CustomLengthSelect } from '../../components/CustomLengthSelect/CustomLengthSelect';
 import { CustomQuantitySelect } from '../../components/CustomQuantitySelect/CustomQuantitySelect';
 import { CommentInput } from '../../components/CommentInput/CommentInput';
+import { CustomPriceInput } from '../../components/CustomPriceInput/CustomPriceInput';
+import { TotalLength } from '../../components/TotalLength/TotalLength';
+import { TotalPrice } from '../../components/TotalPrice/TotalPrice';
+import { CreateNewOrderButton } from '../../components/Button/newOrderButton/CreateNewOrderButton/CreateNewOrderButton';
 
 export const CreateOrder = () => {
     const newOrder = useOrdersStore((state) => state.newOrder);
@@ -12,21 +16,23 @@ export const CreateOrder = () => {
     const resetNewOrder = useOrdersStore((state) => state.resetNewOrder);
     useEffect(() => {
         return () => {
-            console.log('уход со страницы');
             resetNewOrder();
         };
     }, []);
-    console.log('newOrder: ', newOrder);
 
     return (
         <div className='createOrderWrapper'>
             <div className='createOrderHeader'>
-                NEW ORDER
+                {`NEW ORDER`}
             </div>
             <CustomTubeSelect />
             <CustomLengthSelect />
             <CustomQuantitySelect />
             <CommentInput />
+            <CustomPriceInput />
+            <TotalLength />
+            <TotalPrice />
+            <CreateNewOrderButton />
         </div>
     );
 };

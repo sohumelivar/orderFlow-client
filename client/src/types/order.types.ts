@@ -14,9 +14,9 @@ export type OrderType = {
 export type CreateOrder = {
 	suction_size: string;
 	liquid_size: string;
-	length: number | null;
-	quantity: number | null;
-	price_per_meter: number | null;
+	length: number;
+	quantity: number;
+	price_per_meter: number;
 	comment?: string;
 };
 
