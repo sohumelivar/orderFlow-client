@@ -5,6 +5,9 @@ import { initialNewOrder } from '../constants/newOrder';
 type OrdersState = {
     orders: OrderType[];
     newOrder: CreateOrder;
+    errorMessage: string | null;
+    setErrorMessage: (message: string | null) => void;
+    resetErrorMessage: () => void;
     setOrders: (orders: OrderType[]) => void;
     addOrder: (order: OrderType) => void;
     updateOrder: (updatedOrder: OrderType) => void;
@@ -22,6 +25,12 @@ type OrdersState = {
 export const useOrdersStore = create<OrdersState>((set) => ({
     orders: [],
     newOrder: {...initialNewOrder},
+    errorMessage: null,
+
+    setErrorMessage: (message) => set({errorMessage: message}),
+
+    resetErrorMessage: () => set({errorMessage: null}),
+
     setOrders: (orders) => set({orders}),
 
     addOrder: (order) =>

@@ -25,9 +25,6 @@ export const ActiveOrdersPage = () => {
         };
     };
 
-    console.log('orders', orders);
-    
-
     const deleteOrderModal = (orderId: number) => {
         setModalContent(<DeleteModal orderId={orderId} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={closeModal} />);
     };

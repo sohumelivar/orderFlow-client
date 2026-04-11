@@ -22,7 +22,6 @@ api.interceptors.response.use(
       tokenService.removeToken();
       window.location.reload();
     }
-
     return Promise.reject(error);
   }
 );

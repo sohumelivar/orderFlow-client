@@ -8,11 +8,6 @@
     font-family: "Barlow Condensed", sans-serif;
     font-size: 28px;
     font-weight: 700;
-    height: 70px;
+    height: 45px;
     padding: 0 7px;
-}
-
-.testDiv {
-    background-color: aqua;
-    color: red;
 }
