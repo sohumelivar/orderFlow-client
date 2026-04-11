@@ -1,7 +1,7 @@
 import './CreateOrder.css';
 import { CustomTubeSelect } from '../../components/CustomTubeSelect/CustomTubeSelect';
 import { useOrdersStore } from '../../store/ordersStore';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { CustomLengthSelect } from '../../components/CustomLengthSelect/CustomLengthSelect';
 import { CustomQuantitySelect } from '../../components/CustomQuantitySelect/CustomQuantitySelect';
 import { CommentInput } from '../../components/CommentInput/CommentInput';
