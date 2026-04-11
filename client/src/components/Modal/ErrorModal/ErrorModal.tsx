@@ -10,7 +10,7 @@ export const ErrorModal = ({ onClose }:Props) => {
     
     return (
         <div className='error-modal' onClick={onClose}>
-            <h3 className='errMessageH3'>ERROR MESSAGE?</h3>
+            <h3 className='errMessageH3'>ERROR MESSAGE</h3>
             <p>{errorMessage}</p>
             <button className={`btn `} >OK</button>
         </div>
