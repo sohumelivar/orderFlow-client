@@ -28,3 +28,17 @@ export const createOrder = async (newOrder: CreateOrder): Promise<CreateOrderRes
     const response = await api.post(`/orders/create`, newOrder);
     return response.data;
 };
+
+type OrderInfoRequest = {
+    id: number;
+    completed_quantity: number;
+};
+
+type CompleteOrderResponse = {
+    order: OrderType;
+};
+
+export const completeOrder = async (orderInfo: OrderInfoRequest): Promise<CompleteOrderResponse> => {
+    const response = await api.patch('/orders/complete', orderInfo);
+    return response.data;
+};

@@ -13,7 +13,7 @@ export const CancelButton = ({ orderId }: Props) => {
     const handleClick = async () => {
             try {
                 const data = await updateOrderStatus(orderId);
-                updateOrder(data.order)
+                updateOrder(data.order);
             } catch (error) {
                 console.error('Failed to update order status:', error); 
             }

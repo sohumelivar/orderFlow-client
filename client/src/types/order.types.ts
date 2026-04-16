@@ -29,3 +29,11 @@ export type PipePair = {
 	liquid_size: string;
 	display_name: string;
 };
+
+export type CompleteOrder = {
+	orderId: number;
+	tube_size: string;
+	quantity: number;
+	completed_quantity: number;
+	length: number;
+};

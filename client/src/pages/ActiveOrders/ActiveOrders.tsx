@@ -6,6 +6,8 @@ import { Modal } from '../../components/Modal/Modal';
 import { DeleteModal } from '../../components/Modal/DeleteModal/DeleteModal';
 import { useActiveOrders } from '../../hooks/useActiveOrders';
 import { deleteOrder } from '../../api/orders';
+import { CompleteOrderModal } from '../../components/Modal/CompleteOrderModal/CompleteOrderModal';
+import { useCompleteOrderStore } from '../../store/completeOrderStore';
 
 export const ActiveOrdersPage = () => {
     useActiveOrders();
@@ -13,6 +15,8 @@ export const ActiveOrdersPage = () => {
     const removeOrder = useOrdersStore(state => state.removeOrder);
     const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
     const closeModal = () => setModalContent(null);
+    const modalIsOpen = useCompleteOrderStore((state) => state.modalIsOpen);
+    const toggleModal = useCompleteOrderStore((state) => state.toggleModal);
 
     const handleDeleteOrder = async (oderdId: number) => {
         try {
@@ -44,13 +48,16 @@ export const ActiveOrdersPage = () => {
                     <OrderCard 
                         key={order.id}
                         order={order}
-                        openTestModal={deleteOrderModal}
+                        deleteOrderModal={deleteOrderModal}
                     />
                 ))}
             </div>
 
             <Modal isOpen={!!modalContent} onClose={closeModal}>
                 {modalContent}
+            </Modal >
+            <Modal isOpen={!!modalIsOpen}>
+                {<CompleteOrderModal />}
             </Modal>
         </>
         

@@ -2,8 +2,8 @@ import { createPortal } from "react-dom";
 import './Modal.css';
 
 type Props = {
-    isOpen: boolean;
-    onClose: () => void;
+    isOpen?: boolean;
+    onClose?: () => void;
     children: React.ReactNode;
 };
 

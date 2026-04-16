@@ -25,7 +25,7 @@ export const CustomLengthSelect = () => {
     }, []);
     
 
-    const handleSelectOptions = (event: React.MouseEvent<HTMLDivElement>, hiddenBlock: string) => {        
+    const handleSelectOptions = (event: React.MouseEvent<HTMLDivElement>) => {        
         const isActiveOption = event.currentTarget.className.split(' ');
         if (isActiveOption[1] === 'activeOption') {
             setActiveOption('');

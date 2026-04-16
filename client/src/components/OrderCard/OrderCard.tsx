@@ -8,11 +8,11 @@ import { CancelButton } from '../Button/OrderCardButton/CancelButton/CancelButto
 import { CompleteButton } from '../Button/OrderCardButton/CompleteButton/CompleteButton';
 
 type Props = {
-  order: OrderType;
-  openTestModal: (orderId: number) => void;
+    order: OrderType;
+    deleteOrderModal: (orderId: number) => void;
 };
 
-export const OrderCard = ({ order, openTestModal }: Props) => {
+export const OrderCard = ({ order, deleteOrderModal }: Props) => {
     const hasMessage = Boolean(order.comment);
     const orderStatus = order.status;
     const formattedDate = new Date(order.created_at)
@@ -36,7 +36,7 @@ export const OrderCard = ({ order, openTestModal }: Props) => {
                 <div className="order-card__actions">
                     <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`}/>
                     <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
-                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => openTestModal(order.id)}/>
+                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => deleteOrderModal(order.id)}/>
                 </div>
             </div>
             <div className="order-card-divider"/>
@@ -67,7 +67,7 @@ export const OrderCard = ({ order, openTestModal }: Props) => {
                     :
                     <div className='button_layout'>
                         <CancelButton orderId={order.id}/>
-                        <CompleteButton />
+                        <CompleteButton orderId={order.id}/>
                     </div>
                 }
         </div>
