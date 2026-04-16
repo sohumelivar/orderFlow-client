@@ -16,7 +16,6 @@ export const ActiveOrdersPage = () => {
     const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
     const closeModal = () => setModalContent(null);
     const modalIsOpen = useCompleteOrderStore((state) => state.modalIsOpen);
-    const toggleModal = useCompleteOrderStore((state) => state.toggleModal);
 
     const handleDeleteOrder = async (oderdId: number) => {
         try {

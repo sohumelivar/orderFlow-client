@@ -3,7 +3,6 @@ import SquareCheck from '../../../assets/icons/square-check.svg?react';
 import { useEffect, useRef, useState } from 'react';
 import { useCompleteOrderStore } from '../../../store/completeOrderStore';
 import { completeOrder, getActiveOrders } from '../../../api/orders';
-import { useActiveOrders } from '../../../hooks/useActiveOrders';
 import { useOrdersStore } from '../../../store/ordersStore';
 
 export const CompleteOrderModal = () => {
