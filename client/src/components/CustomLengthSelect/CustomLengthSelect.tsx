@@ -50,7 +50,7 @@ export const CustomLengthSelect = () => {
     return (
         <div ref={ref} className='lengthWrap'>
             <div className={`lengthTitle`}>{'LENGTH (M)'}</div>
-            <div className={`lengthOption ${activeOption}`} onClick={(e) => handleSelectOptions(e, hiddenBlock)}>{lengthInput}</div>
+            <div className={`lengthOption ${activeOption}`} onClick={(e) => handleSelectOptions(e)}>{lengthInput}</div>
             <div ref={refToScroll} className={`lengthDropdown ${hiddenBlock}`}>
                 {[...Array(50)].map((_,i) => (
                     <div key={i} className={`lengthNumbers optionsColor`} onClick={handleSelectLength}>{i + 1}</div>
