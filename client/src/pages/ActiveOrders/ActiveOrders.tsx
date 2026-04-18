@@ -8,6 +8,9 @@ import { useActiveOrders } from '../../hooks/useActiveOrders';
 import { deleteOrder } from '../../api/orders';
 import { CompleteOrderModal } from '../../components/Modal/CompleteOrderModal/CompleteOrderModal';
 import { useCompleteOrderStore } from '../../store/completeOrderStore';
+import type { OrderType } from '../../types/order.types';
+import { useOrderCommentStore } from '../../store/viewCommentStore';
+import { CommentModal } from '../../components/Modal/CommentModal/CommentModal';
 
 export const ActiveOrdersPage = () => {
     useActiveOrders();
@@ -16,6 +19,7 @@ export const ActiveOrdersPage = () => {
     const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
     const closeModal = () => setModalContent(null);
     const modalIsOpen = useCompleteOrderStore((state) => state.modalIsOpen);
+    const commentModalIsOpen = useOrderCommentStore((state) => state.commentModalIsOpen);
 
     const handleDeleteOrder = async (oderdId: number) => {
         try {
@@ -28,8 +32,8 @@ export const ActiveOrdersPage = () => {
         };
     };
 
-    const deleteOrderModal = (orderId: number) => {
-        setModalContent(<DeleteModal orderId={orderId} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={closeModal} />);
+    const deleteOrderModal = (orderId: number, order: OrderType) => {
+        setModalContent(<DeleteModal orderId={orderId} order={order} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={closeModal} />);
     };
 
     return (
@@ -55,8 +59,11 @@ export const ActiveOrdersPage = () => {
             <Modal isOpen={!!modalContent} onClose={closeModal}>
                 {modalContent}
             </Modal >
-            <Modal isOpen={!!modalIsOpen}>
+            <Modal isOpen={modalIsOpen}>
                 {<CompleteOrderModal />}
+            </Modal>
+            <Modal isOpen={commentModalIsOpen}>
+                {<CommentModal />}
             </Modal>
         </>
         

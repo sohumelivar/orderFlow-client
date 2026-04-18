@@ -13,7 +13,7 @@ type CompleteOrderState = {
 
 export const useCompleteOrderStore = create<CompleteOrderState>((set) => ({
     completeOrderInfo: completeOrderInfoInitial,
-    modalIsOpen: false,
+    modalIsOpen:  false,
     
     setCompleteOrderInfo: (order) =>
         set({

@@ -6,18 +6,29 @@ import Trash from '../../assets/icons/trash-2.svg?react';
 import { WaitingButton } from '../Button/OrderCardButton/WaitingButton/WaitingButton';
 import { CancelButton } from '../Button/OrderCardButton/CancelButton/CancelButton';
 import { CompleteButton } from '../Button/OrderCardButton/CompleteButton/CompleteButton';
+import { useOrderCommentStore } from '../../store/viewCommentStore';
 
 type Props = {
     order: OrderType;
-    deleteOrderModal: (orderId: number) => void;
+    deleteOrderModal: (orderId: number, order: OrderType) => void;
 };
 
 export const OrderCard = ({ order, deleteOrderModal }: Props) => {
+    const setCommentModalIsVisible = useOrderCommentStore((state) => state.setCommentModalIsVisible);
+    const setComment = useOrderCommentStore((state) => state.setComment);
+
     const hasMessage = Boolean(order.comment);
     const orderStatus = order.status;
     const formattedDate = new Date(order.created_at)
         .toISOString()
         .split('T')[0];
+
+    const viewComment = () => {
+        if (!hasMessage || !order.comment) return;
+
+        setComment(order.comment);
+        setCommentModalIsVisible();
+    };
 
     return (
         <div id={`order-${order.id}`} className={`order-card order-card--${order.status}`}>
@@ -34,9 +45,9 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
                     </div>
                 </div>
                 <div className="order-card__actions">
-                    <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`}/>
+                    <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`} onClick={viewComment}/>
                     <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
-                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => deleteOrderModal(order.id)}/>
+                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => deleteOrderModal(order.id, order)}/>
                 </div>
             </div>
             <div className="order-card-divider"/>
