@@ -99,8 +99,9 @@ export const CompleteOrderModal = () => {
                     onClick={
                         () => sendCompleteInfo(completeOrderInfo.orderId, completeOrderInfo.completed_quantity)
                     }>
-                        {`Complete`}
-                    </button>
+                        <SquareCheck className='complete_button_icon'/>
+                        <span>COMPLETE</span>
+                </button>
             </div>
         </div>
     );
