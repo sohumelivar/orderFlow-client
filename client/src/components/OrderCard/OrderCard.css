@@ -81,17 +81,18 @@
 }
 
 .action-icon {
-  color: var(--color-text-secondary);
-  cursor: default;
+    color: var(--color-text-secondary);
+    cursor: default;
 }
 
 .action-icon.active {
-  cursor: pointer;
-  color: var(--color-active);
+    cursor: pointer;
+    color: var(--color-active);
 }
 
 .action-icon.disabled {
-  opacity: 0.4;
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 /* -------------------BODY---------------------- */
