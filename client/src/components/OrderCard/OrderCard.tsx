@@ -7,6 +7,7 @@ import { WaitingButton } from '../Button/OrderCardButton/WaitingButton/WaitingBu
 import { CancelButton } from '../Button/OrderCardButton/CancelButton/CancelButton';
 import { CompleteButton } from '../Button/OrderCardButton/CompleteButton/CompleteButton';
 import { useOrderCommentStore } from '../../store/viewCommentStore';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
     order: OrderType;
@@ -16,6 +17,7 @@ type Props = {
 export const OrderCard = ({ order, deleteOrderModal }: Props) => {
     const setCommentModalIsVisible = useOrderCommentStore((state) => state.setCommentModalIsVisible);
     const setComment = useOrderCommentStore((state) => state.setComment);
+    const nav = useNavigate();
 
     const hasMessage = Boolean(order.comment);
     const orderStatus = order.status;
@@ -28,6 +30,10 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
 
         setComment(order.comment);
         setCommentModalIsVisible();
+    };
+
+    const handleEdit = () => {
+        nav('/edit')
     };
 
     return (
@@ -46,7 +52,7 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
                 </div>
                 <div className="order-card__actions">
                     <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`} onClick={viewComment}/>
-                    <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`}/>
+                    <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={handleEdit}/>
                     <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => deleteOrderModal(order.id, order)}/>
                 </div>
             </div>

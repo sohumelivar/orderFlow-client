@@ -3,6 +3,7 @@ import { ActiveOrdersPage } from "./pages/ActiveOrders/ActiveOrders";
 import { CompletedOrders } from "./pages/CompletedOrders/CompletedOrders";
 import { Layout } from "./components/Layout/Layout";
 import { CreateOrder } from "./pages/CreateOrder/CreateOrder";
+import { EditOrder } from "./pages/EditOrder/EditOrder";
 
 function App() {
 return (
@@ -12,6 +13,7 @@ return (
 				<Route path="/" element={<ActiveOrdersPage/>} />
 				<Route path="/completed" element={<CompletedOrders/>} />
 				<Route path="/create" element={<CreateOrder/>} />
+				<Route path="/edit" element={<EditOrder/>} />
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Route>
 		</Routes>

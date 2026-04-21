@@ -55,16 +55,18 @@ export const ActiveOrdersPage = () => {
                     />
                 ))}
             </div>
+            <div>
+                <Modal isOpen={!!modalContent} onClose={closeModal}>
+                    {modalContent}
+                </Modal >
+                <Modal isOpen={modalIsOpen}>
+                    {<CompleteOrderModal />}
+                </Modal>
+                <Modal isOpen={commentModalIsOpen}>
+                    {<CommentModal />}
+                </Modal>
+            </div>
 
-            <Modal isOpen={!!modalContent} onClose={closeModal}>
-                {modalContent}
-            </Modal >
-            <Modal isOpen={modalIsOpen}>
-                {<CompleteOrderModal />}
-            </Modal>
-            <Modal isOpen={commentModalIsOpen}>
-                {<CommentModal />}
-            </Modal>
         </>
         
     );

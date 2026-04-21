@@ -37,3 +37,12 @@ export type CompleteOrder = {
 	completed_quantity: number;
 	length: number;
 };
+
+export type EditOrder = {
+	suction_size: string;
+	liquid_size: string;
+	// length: number;
+	// quantity: number;
+	// price_per_meter: number;
+	// comment?: string;
+};
