@@ -39,6 +39,7 @@ export type CompleteOrder = {
 };
 
 export type EditOrder = {
+	id: number;
 	suction_size: string;
 	liquid_size: string;
 	length: number;

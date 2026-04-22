@@ -6,3 +6,5 @@ export const initialNewOrder = {
     price_per_meter: 2.5,
     comment: '',
 };
+
+export const price_per_metr = 2.5

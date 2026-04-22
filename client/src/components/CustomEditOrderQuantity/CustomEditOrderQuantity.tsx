@@ -1,13 +1,13 @@
-import './CustomEditOrdeTubeSelect.css';
-import { pipePairs } from '../../constants/pipePairs';
-import { useEditOrderStore } from '../../store/editOrderStore';
 import { useEffect, useRef, useState } from 'react';
+import './CustomEditOrderQuantity.css';
+import { useEditOrderStore } from '../../store/editOrderStore';
 
-export const CustomEditOrdeTubeSelect = () => {
+export const CustomEditOrderQuantity = () => {
+    const ref = useRef<HTMLDivElement>(null);
     const editOrder = useEditOrderStore((state) => state.editOrder);
+    const refToScrollQuantity = useRef<HTMLDivElement>(null);
     const [hiddenBlock, setHiddenBlock] = useState('hidden');
     const [activeOption, setActiveOption] = useState('');
-    const ref = useRef<HTMLDivElement>(null);
     const updateEditOrder = useEditOrderStore((state) => state.updateEditOrder);
 
     useEffect(() => {
@@ -22,7 +22,6 @@ export const CustomEditOrdeTubeSelect = () => {
             document.removeEventListener('click', handleClick);
         };
     }, []);
-    
 
     const handleSelectOptions = (e: React.MouseEvent<HTMLDivElement>) => {
         const isActiveOption = e.currentTarget.className.split(' ');
@@ -37,29 +36,26 @@ export const CustomEditOrdeTubeSelect = () => {
         setActiveOption('activeOption');
     };
 
-    const handleSelectTubeSize = (event: React.MouseEvent<HTMLDivElement>) => {
-        const displayName = event.currentTarget.textContent;
-        const pipePair = pipePairs.find((el) => el.display_name === displayName);
-        if (!pipePair) return
+    const handleSelectQuantity = (event: React.MouseEvent<HTMLDivElement>) => {
+        const quantityNumber = event.currentTarget.textContent;
         updateEditOrder({
-            suction_size: pipePair?.suction_size,
-            liquid_size: pipePair?.liquid_size
+            quantity: Number(quantityNumber)
         });
         setHiddenBlock('hidden');
         setActiveOption('');
     };
-    
+
     return (
-        <div ref={ref} className='tubeWrap'>
-                <div className={`tubeSize`}>TUBE SIZE</div>
-                <div className={`tubeOptions ${activeOption}`} onClick={handleSelectOptions}>
-                    {`${editOrder?.suction_size} + ${editOrder?.liquid_size}`}
-                </div>
-                <div className={`tubeDropwown ${hiddenBlock}`}>
-                    {pipePairs.map((el) => (
-                        <div key={el.display_name} className={`tubeOptions optionsColor`} onClick={handleSelectTubeSize}>{el.display_name}</div>
-                    ))}
-                </div>
+        <div ref={ref} className='editOrderQuantityWrap'>
+            <div className={`editOrderQuantityTitle`}>{'QUANTITY (PCS)'}</div>
+            <div className={`editOrderQuantityOptions ${activeOption}`} onClick={handleSelectOptions}>
+                {editOrder?.quantity}
+            </div>
+            <div ref={refToScrollQuantity} className={`quantityDropDown ${hiddenBlock}`}>
+                {[...Array(50)].map((_,i) => (
+                    <div key={i} className={`quantityNumbers`} onClick={handleSelectQuantity} >{i + 1}</div>
+                ))}
+            </div>
         </div>
     );
 };

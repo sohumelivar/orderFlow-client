@@ -1,0 +1,44 @@
+.commentInputWrap {
+    margin-top: 15px;
+    color: var(--color-gray-1);
+    font-size: 11px;
+    font-weight: 600;
+    position: relative;
+}
+
+.commentTitle {
+    margin: 0 7px;
+    margin-bottom: 2px;    
+}
+
+.commentInput {
+    display: flex;
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 11px;
+    width: calc(100% - 14px);
+    margin: 0 7px;
+    height: 48px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid var(--color-gray-1);
+    color: var(--color-gray-1);
+    user-select: none;
+    background-color: var(--color-gray-3);
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea::placeholder {
+    color: var(--color-gray-1);
+}
+
+.activeOption {
+    border: 1px solid var(--color-status-completed-border);
+    background-color: var(--color-green);
+}
