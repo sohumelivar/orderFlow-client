@@ -1,0 +1,23 @@
+.activeOption {
+    border: 1px solid var(--color-status-completed-border);
+}
+
+.tubeOptions {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 8px;
+    margin: 0 7px;
+    height: 48px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid var(--color-gray-1);
+    color: var(--color-gray-1);
+    user-select: none;
+    background-color: var(--color-gray-3);
+}
+
+.optionsColor {
+    background-color: var(--color-green);
+}

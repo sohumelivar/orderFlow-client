@@ -8,6 +8,8 @@ import { CancelButton } from '../Button/OrderCardButton/CancelButton/CancelButto
 import { CompleteButton } from '../Button/OrderCardButton/CompleteButton/CompleteButton';
 import { useOrderCommentStore } from '../../store/viewCommentStore';
 import { useNavigate } from 'react-router-dom';
+import { useEditOrderStore } from '../../store/editOrderStore';
+import { useEffect } from 'react';
 
 type Props = {
     order: OrderType;
@@ -18,6 +20,13 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
     const setCommentModalIsVisible = useOrderCommentStore((state) => state.setCommentModalIsVisible);
     const setComment = useOrderCommentStore((state) => state.setComment);
     const nav = useNavigate();
+    const editOrder = useEditOrderStore((state) => state.editOrder);
+    const setEditOrder = useEditOrderStore((state) => state.setEditOrder);
+    
+    useEffect(() => {
+        console.log('effect');
+    }, []);
+
 
     const hasMessage = Boolean(order.comment);
     const orderStatus = order.status;
@@ -27,12 +36,18 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
 
     const viewComment = () => {
         if (!hasMessage || !order.comment) return;
-
         setComment(order.comment);
         setCommentModalIsVisible();
     };
 
     const handleEdit = () => {
+        setEditOrder({
+            suction_size: order.suction_size,
+            liquid_size: order.liquid_size,
+            length: order.length,
+            quantity: order.quantity,
+            comment: order.comment,
+        });
         nav('/edit')
     };
 
