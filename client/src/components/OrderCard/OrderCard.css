@@ -18,6 +18,10 @@
     border-left-color: var(--color-status-completed-border);
 }
 
+.order-card--deleted {
+    border-left-color: var(--color-button-cancel-border);
+}
+
 /* -------------------HEADER---------------------- */
 
 

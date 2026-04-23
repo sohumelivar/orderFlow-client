@@ -45,6 +45,10 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
         nav('/edit')
     };
 
+    const deleteOrder = () => {
+        deleteOrderModal(order.id, order)
+    };
+
     return (
         <div id={`order-${order.id}`} className={`order-card order-card--${order.status}`}>
             <div className="order-card__header">
@@ -62,7 +66,7 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
                 <div className="order-card__actions">
                     <MessageSquare className={`action-icon ${hasMessage ? 'active' : 'disabled'}`} onClick={viewComment}/>
                     <Pencil className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={handleEdit}/>
-                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={() => deleteOrderModal(order.id, order)}/>
+                    <Trash className={`action-icon ${orderStatus === 'waiting' ? 'active' : 'disabled'}`} onClick={deleteOrder}/>
                 </div>
             </div>
             <div className="order-card-divider"/>
@@ -88,14 +92,20 @@ export const OrderCard = ({ order, deleteOrderModal }: Props) => {
                 </div>
             </div>
             <div className="order-card-divider"/>
-                {order.status === 'waiting' ? 
-                    <WaitingButton orderId={order.id}/>
-                    :
+                {order.status === 'waiting' && (
+                    <WaitingButton orderId={order.id} />
+                )}
+
+                {order.status === 'deleted' && (
+                    <WaitingButton orderId={order.id} />
+                )}
+
+                {order.status !== 'waiting' && order.status !== 'deleted' && (
                     <div className='button_layout'>
-                        <CancelButton orderId={order.id}/>
-                        <CompleteButton orderId={order.id}/>
+                        <CancelButton orderId={order.id} />
+                        <CompleteButton orderId={order.id} />
                     </div>
-                }
+                )}
         </div>
     );
 };

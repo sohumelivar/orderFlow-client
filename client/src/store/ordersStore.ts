@@ -20,12 +20,28 @@ type OrdersState = {
     setQuantity: (value: number) => void;
     setPricePerMeter: (value: number) => void;
     setComment: (value: string) => void;
+    setDeleteStatus: (order: OrderType) => void;
+    setWaitingStatus: (order: OrderType) => void;
 };
 
 export const useOrdersStore = create<OrdersState>((set) => ({
     orders: [],
     newOrder: {...initialNewOrder},
     errorMessage: null,
+
+    setDeleteStatus: (order: OrderType) =>
+        set((state) => ({
+            orders: state.orders.map((el) =>
+                el.id === order.id ? {...el, status: 'deleted'} : el
+            ),
+        })),
+    
+    setWaitingStatus: (order: OrderType) =>
+        set((state) => ({
+            orders: state.orders.map((el) =>
+                el.id === order.id ? {...el, status: 'waiting'} : el
+            ),
+        })),
 
     setErrorMessage: (message) => set({errorMessage: message}),
 

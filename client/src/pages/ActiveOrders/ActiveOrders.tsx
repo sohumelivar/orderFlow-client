@@ -17,23 +17,33 @@ export const ActiveOrdersPage = () => {
     const orders = useOrdersStore((state) => state.orders);
     const removeOrder = useOrdersStore(state => state.removeOrder);
     const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
-    const closeModal = () => setModalContent(null);
     const modalIsOpen = useCompleteOrderStore((state) => state.modalIsOpen);
     const commentModalIsOpen = useOrderCommentStore((state) => state.commentModalIsOpen);
+    const setDeleteStatus = useOrdersStore((state) => state.setDeleteStatus);
+    const setWaitingStatus = useOrdersStore((state) => state.setWaitingStatus);
+    
+    const closeModal = (order: OrderType) => {
+        setWaitingStatus(order);
+        setModalContent(null);
+    };
+
 
     const handleDeleteOrder = async (oderdId: number) => {
         try {
+            setModalContent(null);
             await deleteOrder(oderdId);
-            removeOrder(oderdId);
         } catch (error) {
             console.log('error', error);
         } finally {
-            closeModal();
+            setTimeout(() => {
+                removeOrder(oderdId);
+            }, 1000);
         };
     };
 
     const deleteOrderModal = (orderId: number, order: OrderType) => {
-        setModalContent(<DeleteModal orderId={orderId} order={order} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={closeModal} />);
+        setDeleteStatus(order);
+        setModalContent(<DeleteModal orderId={orderId} order={order} onConfirm={()=>handleDeleteOrder(orderId)} onCancel={() => closeModal(order)} />);
     };
 
     return (
@@ -56,7 +66,7 @@ export const ActiveOrdersPage = () => {
                 ))}
             </div>
             <div>
-                <Modal isOpen={!!modalContent} onClose={closeModal}>
+                <Modal isOpen={!!modalContent}>
                     {modalContent}
                 </Modal >
                 <Modal isOpen={modalIsOpen}>
