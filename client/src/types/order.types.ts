@@ -46,3 +46,7 @@ export type EditOrder = {
 	quantity: number;
 	comment?: string;
 };
+
+export type CompletedOrdersResponse = {
+	orders: OrderType[];
+};

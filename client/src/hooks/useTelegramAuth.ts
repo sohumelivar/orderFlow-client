@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { authWithTelegram } from '../api/auth';
-import { tokenService } from '../api/token';
 import { getInitData } from '../utils/getInitData';
 
 export const useTelegramAuth = () => {
@@ -17,12 +16,12 @@ export const useTelegramAuth = () => {
             (tg as any).disableVerticalSwipes?.();
         }
 
-        const token = tokenService.getToken();
+        // const token = tokenService.getToken();
 
-        if (token) {
-            setIsAuthorized(true);
-            return;
-        }
+        // if (token) {
+        //     setIsAuthorized(true);
+        //     return;
+        // }
 
         const initData = getInitData();
 

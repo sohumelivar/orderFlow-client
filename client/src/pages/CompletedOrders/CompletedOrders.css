@@ -3,10 +3,6 @@
     flex-direction: column;
 }
 
-.headerWrapper {
-    height: 70px;
-}
-
 .active-page-header {
     color: var(--color-white-label-1);
     font-family: "Barlow Condensed", sans-serif;

@@ -1,5 +1,5 @@
 import { api } from './axios';
-import type { ActiveOrdersResponse, CreateOrder, EditOrder, OrderType } from '../types/order.types';
+import type { ActiveOrdersResponse, CreateOrder, EditOrder, OrderType, CompletedOrdersResponse } from '../types/order.types';
 
 export const getActiveOrders = async (): Promise<ActiveOrdersResponse> => {
     const response = await api.get('/orders/active');
@@ -51,5 +51,10 @@ type EditOrderResponse = {
 
 export const updateOrder = async (editOrder: EditOrderRequest): Promise<EditOrderResponse> => {
     const response = await api.patch('/orders/update', editOrder);
+    return response.data;
+};
+
+export const getCompletedOrders = async (): Promise<CompletedOrdersResponse> => {
+    const response = await api.get('/orders/completed');
     return response.data;
 };

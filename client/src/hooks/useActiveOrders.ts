@@ -8,10 +8,10 @@ export const useActiveOrders = () => {
     useEffect(() => {
         getActiveOrders()
             .then((data) => {
-        setOrders(data.orders);
-        })
+                setOrders(data.orders);
+            })
             .catch((error) => {
-            console.error('Failed to load active orders:', error);
-        });
+                console.error('Failed to load active orders:', error);
+            });
     }, [setOrders]);
 };

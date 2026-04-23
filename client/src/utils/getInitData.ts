@@ -1,6 +1,5 @@
 export const getInitData = (): string => {
 const initData = window.Telegram?.WebApp?.initData;
-	console.log('initData', initData);
 
 	if (initData) {
 	return initData;
