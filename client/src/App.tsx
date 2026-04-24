@@ -4,6 +4,7 @@ import { CompletedOrders } from "./pages/CompletedOrders/CompletedOrders";
 import { Layout } from "./components/Layout/Layout";
 import { CreateOrder } from "./pages/CreateOrder/CreateOrder";
 import { EditOrder } from "./pages/EditOrder/EditOrder";
+import { StatsPage } from "./pages/Stats/Stats";
 
 function App() {
 return (
@@ -14,6 +15,7 @@ return (
 				<Route path="/completed" element={<CompletedOrders/>} />
 				<Route path="/create" element={<CreateOrder/>} />
 				<Route path="/edit" element={<EditOrder/>} />
+				<Route path="/stats" element={<StatsPage />} />
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Route>
 		</Routes>
