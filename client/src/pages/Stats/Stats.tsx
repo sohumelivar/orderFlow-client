@@ -11,7 +11,11 @@ export const StatsPage = () => {
     const stats = useStatsStore((state) => state.stats);
     useStatsAllTime();
 
-    console.log('stats: ', stats);
+    if (!stats) {
+        return (
+            <div>...loading</div>
+        );
+    };
 
     return (
         <div>

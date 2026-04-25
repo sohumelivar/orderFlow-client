@@ -37,3 +37,8 @@
 .ButtonStatsAllTime {
     margin-right: 7px;
 }
+
+.statsButtonIsActive {
+    background-color: var(--color-active);
+    color: var(--color-modal-complete-background-gray);
+}
