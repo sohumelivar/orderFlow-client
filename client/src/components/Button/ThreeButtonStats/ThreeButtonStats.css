@@ -1,18 +1,35 @@
 .threeButtonWrapp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: 24px;
     margin-bottom: 36px;
     background-color: var(--color-gray-3);
-    height: 47px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border: 1px solid var(--color-gray-1);
+    border-radius: 4px;
+}
+
+.firstLabel {
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
     margin-left: 7px;
     margin-right: 7px;
 }
 
+.secondLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    margin-bottom: 7px;
+}
+
 .threeButtonStats {
     width: 100%;
-    height: 37px;
+    height: 38px;
     border-radius: 4px;
     background-color: var(--color-gray-3);
     color: var(--color-gray-1);
@@ -23,6 +40,7 @@
     outline: none;
     box-shadow: none;
     background: none;
+    border: 1px solid var(--color-gray-1);
 }
 
 .ButtonStatsLastWeek {
