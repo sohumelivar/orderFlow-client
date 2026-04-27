@@ -1,8 +1,6 @@
 import { getStatsAllTime, getStatsLastMonth, getStatsLastWeek } from '../../../api/stats';
 import { useStatsStore } from '../../../store/statsStore';
 import './ThreeButtonStats.css';
-import { CustomMonthSelect } from '../../CustomMonthSelect/CustomMonthSelect';
-import { CustomYearSelect } from '../../CustomYearSelect/CustomYearSelect';
 import { useTimeFilterStore } from '../../../store/timeFilterStore';
 
 export const ThreeButtonStats = () => {
@@ -55,8 +53,6 @@ export const ThreeButtonStats = () => {
                 <button className={`threeButtonStats ButtonStatsAllTime ${allTimeIsActive ? 'statsButtonIsActive' : ''}`} onClick={handleStatsAllTime}>ALL TIME</button>
             </div>
             <div className='secondLabel'>
-                <CustomMonthSelect />
-                <CustomYearSelect />
             </div>
         </div>
     );
