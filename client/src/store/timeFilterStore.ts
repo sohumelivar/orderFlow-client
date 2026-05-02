@@ -7,42 +7,33 @@ type TimeFilterState = {
     allTimeIsActive: boolean;
     monthIsActive: boolean;
     yearIsActive: boolean;
-    setLastWeekIsActive: (value: boolean) => void;
-    setLastMonthIsActive: (value: boolean) => void;
-    setAllTimeIsActive: (value: boolean) => void;
-    setMonthIsActive: (value: boolean) => void;
-    setYearIsActive: (value: boolean) => void;
-    setCurrentYear: (value: number) => void;
+    setTimeFilter: (timeFilterValue: string) => void;
     resetCurrentYear: () => void;
 };
 
-export const useTimeFilterStore = create<TimeFilterState>((set) => ({
-    currentYear: new Date().getFullYear(),
-    lastWeekIsActive: false,
-    lastMonthIsActive: false,
-    allTimeIsActive: true,
-    monthIsActive: false,
-    yearIsActive: false,
-
-    setLastWeekIsActive: (value: boolean) =>
-        set({lastWeekIsActive: value}),
-
-    setLastMonthIsActive: (value: boolean) =>
-        set({lastMonthIsActive: value}),
-
-    setAllTimeIsActive: (value: boolean) =>
-        set({allTimeIsActive: value}),
-
-    setMonthIsActive: (value: boolean) =>
-        set({monthIsActive: value}),
-
-    setYearIsActive: (value: boolean) =>
-        set({yearIsActive: value}),
-
-    setCurrentYear: (value: number) =>
-        set({currentYear: value}),
-
-    resetCurrentYear: () =>
-        set({currentYear: new Date().getFullYear(), yearIsActive: false}),
-
-}));
+export const useTimeFilterStore = create<TimeFilterState>((set) => {
+    return (
+        {
+        currentYear: new Date().getFullYear(),
+        lastWeekIsActive: false,
+        lastMonthIsActive: false,
+        allTimeIsActive: true,
+        monthIsActive: false,
+        yearIsActive: false,
+    
+        setTimeFilter: (timeFilterValue: string) => 
+            set((state) => {
+                const timeFilters = Object.fromEntries(Object.entries(state).filter(([_, value]) => typeof value === 'boolean').map(([key]) => (
+                    [
+                        key,
+                        key === timeFilterValue
+                    ]
+                )));
+                return {...state, ...timeFilters};
+            }),
+  
+        resetCurrentYear: () =>
+            set({currentYear: new Date().getFullYear(), yearIsActive: false}),
+        }
+    );
+});

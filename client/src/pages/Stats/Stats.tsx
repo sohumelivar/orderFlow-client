@@ -5,7 +5,7 @@ import TrendingUp from '../../assets/icons/trending-up.svg?react';
 import Wallet from '../../assets/icons/wallet.svg?react';
 import Alert from '../../assets/icons/triangle-alert.svg?react';
 import Clock from '../../assets/icons/clock.svg?react';
-import { ThreeButtonStats } from '../../components/Button/ThreeButtonStats/ThreeButtonStats';
+import { TimeFilter } from '../../components/TimeFilter/TimeFilter';
 
 export const StatsPage = () => {
     const stats = useStatsStore((state) => state.stats);
@@ -74,10 +74,7 @@ export const StatsPage = () => {
                 </div>
 
             </div>
-
-
-            <ThreeButtonStats />
-
+            <TimeFilter />
 
         </div>
     );
