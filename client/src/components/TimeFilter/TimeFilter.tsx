@@ -39,24 +39,32 @@ export const TimeFilter = () => {
         <div className={`timeFilterWrap`}>
             <div className={`threeButtonWrap first001`}>
                 <button 
-                    className={`timeFilterBtn`}
+                    className={`timeFilterBtn ${lastWeekIsActive ? 'activeTimeFilter' : ''}`}
                     onClick={handleStatsLastWeek}>
                         {`LAST WEEK`}
                 </button>
                 <button 
-                    className={`timeFilterBtn`}
+                    className={`timeFilterBtn ${lastMonthIsActive ? 'activeTimeFilter' : ''}`}
                     onClick={handleStatsLastMonth}>
                         {`LAST MONTH`}
                 </button>
                 <button 
-                    className={`timeFilterBtn`}
+                    className={`timeFilterBtn ${allTimeIsActive ? 'activeTimeFilter' : ''}`}
                     onClick={handleStatsAllTime}>
                         {`ALL TIME`}
                 </button>
             </div>
             <div className={`threeButtonWrap second001`}>
-                <div>{`MONTH`}</div>
-                <div>{`YEAR`}</div>
+
+                <div className={`monthWrap`}>
+                    <div className={`timeFilterBtn`}>ONE</div>
+                    <div className={`timeFilterBtn`}>TWO</div>
+                    <div className={`timeFilterBtn`}>THREE</div>
+                </div>
+
+
+
+                <div className={`yearWrap`}>{`YEAR`}</div>
             </div>
         </div>
     );
