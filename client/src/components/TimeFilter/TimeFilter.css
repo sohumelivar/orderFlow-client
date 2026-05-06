@@ -2,38 +2,28 @@
     display: flex;
     flex-direction: column;
 
-    height: 114px;
-
-
     margin-left: 7px;
     margin-right: 7px;
 
-    
     border: 0.5px solid var(--color-gray-1);
     border-radius: 4px;
 }
 
-.threeButtonWrap {
+.first001 {
     display: flex;
     justify-content: space-around;
-
-    height: 37px;
-
+    height: 57px;
+    gap: 7px;
+    margin-top: 7px;
+    margin-bottom: 7px;
     color: var(--color-gray-1);
 }
 
-.first001 {
-    gap: 7px;
-    height: 57px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-}
-
-.threeButtonWrap :first-child {
+.first001 :first-child {
     margin-left: 7px;
 }
 
-.threeButtonWrap :last-child {
+.first001 :last-child {
     margin-right: 7px;
 }
 
@@ -53,27 +43,75 @@
     cursor: pointer;
 }
 
-.activeTimeFilter {
-    background-color: var(--color-status-completed-border);
-    color: var(--color-bg-dark);
-}
-
 .second001 {
-    margin-bottom: 7px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
     gap: 7px;
-    height: 57px;
+    margin-bottom: 7px;
+    
+    color: var(--color-gray-1);
+
+    font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubunt;
+    font-weight: 700;
+    font-size: 10px;
+
+    cursor: pointer;
 }
 
 .monthWrap {
-    background-color: aquamarine;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
     width: 100%;
-    margin: 0;
-    padding: 0;
+    overflow-y: visible;
+    margin-left: 7px;
+    border-radius: 4px;
+    border: 0.5px solid var(--color-gray-1);
+}
+
+.monthDropdown {
+    position: absolute;
+    top: 57px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-height: 257px;
+
+    border: 0.5px solid var(--color-gray-1);
+    color: var(--color-gray-1);
+    /* background-color: var(--color-bg-dark); */
+    background-color: red;
+
+    overflow-y: auto;
+
+}
+
+.monthSelect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: 0.5px solid var(--color-gray-1);
+    color: var(--color-gray-1);
+    background-color: var(--color-bg-dark);
+    height: 57px;
 }
 
 .yearWrap {
     background-color: rgb(111, 109, 6);
     width: 100%;
-    margin: 0;
-    padding: 0;
+}
+
+.hiddenMonth {
+    display: none;
+}
+
+
+.activeTimeFilter {
+    background-color: var(--color-status-completed-border);
+    color: var(--color-bg-dark);
 }

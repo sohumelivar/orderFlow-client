@@ -9,6 +9,7 @@ type TimeFilterState = {
     yearIsActive: boolean;
     setTimeFilter: (timeFilterValue: string) => void;
     resetCurrentYear: () => void;
+    setMonthHidden: () => void;
 };
 
 export const useTimeFilterStore = create<TimeFilterState>((set) => {
@@ -34,6 +35,9 @@ export const useTimeFilterStore = create<TimeFilterState>((set) => {
   
         resetCurrentYear: () =>
             set({currentYear: new Date().getFullYear(), yearIsActive: false}),
+
+        setMonthHidden: () =>
+            set({monthIsActive: false}),
         }
     );
 });
