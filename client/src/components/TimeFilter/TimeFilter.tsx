@@ -1,59 +1,89 @@
-import { getStatsAllTime, getStatsLastMonth, getStatsLastWeek } from '../../api/stats';
+import { getStatsAllTime,
+    getStatsLastMonth,
+    getStatsLastWeek,
+    getStatsMonth,
+    getStatsYear,
+} from '../../api/stats';
 import { useStatsStore } from '../../store/statsStore';
 import { useTimeFilterStore } from '../../store/timeFilterStore';
 import './TimeFilter.css';
 import { getArrayMonths } from '../../utils/getArrayMonths';
-import { useState } from 'react';
+import { getArrayYears } from '../../utils/getArrayYears';
+import React, { useState } from 'react';
 
 export const TimeFilter = () => {
     const setStats = useStatsStore((state) => state.setStats);
     const setTimeFilter = useTimeFilterStore((state) => state.setTimeFilter);
-    const resetCurrentYear = useTimeFilterStore((state) => state.resetCurrentYear);
     const lastWeekIsActive = useTimeFilterStore((state) => state.lastWeekIsActive);
     const lastMonthIsActive = useTimeFilterStore((state) => state.lastMonthIsActive);
     const allTimeIsActive = useTimeFilterStore((state) => state.allTimeIsActive);
     const monthIsActive = useTimeFilterStore((state) => state.monthIsActive);
     const yearIsActive = useTimeFilterStore((state) => state.yearIsActive);
-    const state = useTimeFilterStore((state) => state);
     const currentYear = useTimeFilterStore((state) => state.currentYear);
     const [month, setMonth] = useState('MONTH');
+    const [year, setYear] = useState('YEAR');
     const setMonthHidden = useTimeFilterStore((state) => state.setMonthHidden);
+    const setYearHidden = useTimeFilterStore((state) => state.setYearHidden);
+
+    
 
     const handleStatsLastWeek = async () => {
         setTimeFilter('lastWeekIsActive');
         const data = await getStatsLastWeek();
-        setMonth('MONTH')
+        setYear('YEAR');
+        setMonth('MONTH');
         setStats(data);
     };
 
     const handleStatsLastMonth = async () => {
         setTimeFilter('lastMonthIsActive');
         const data = await getStatsLastMonth();
-        setMonth('MONTH')
+        setMonth('MONTH');
+        setYear('YEAR');
         setStats(data);
     };
 
     const handleStatsAllTime = async () => {
         setTimeFilter('allTimeIsActive');
         const data = await getStatsAllTime();
-        setMonth('MONTH')
+        setMonth('MONTH');
+        setYear('YEAR');
         setStats(data);
     };
 
-    const handleStatsMonth = async () => {
+    const handleStatsMonth = () => {
         setTimeFilter('monthIsActive');
         if (monthIsActive) {
             setTimeFilter('allTimeIsActive');
         }
     };
 
-    const handleMonth = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleStatsYear = () => {
+        setTimeFilter('yearIsActive');
+        if (yearIsActive) {
+            setTimeFilter('allTimeIsActive');
+        }
+    };
+
+    const handleMonth = async (e: React.MouseEvent<HTMLDivElement>) => {
         const selectedMonth = e.currentTarget.textContent;
+        const monthId = Number(e.currentTarget.dataset.monthId);
         setMonth(selectedMonth);
         setMonthHidden();
+        const data = await getStatsMonth(monthId, currentYear);
+        setStats(data);
+    };
+
+    const handleYear = async (e: React.MouseEvent<HTMLDivElement>) => {
+        const selectedYear = e.currentTarget.textContent;
+        setYear(selectedYear);
+        setYearHidden();
+        const data = await getStatsYear(Number(selectedYear));
+        setStats(data);
     };
 
     const arrayMonths = getArrayMonths(currentYear);
+    const arrayYears = getArrayYears();
 
     return (
         <div className={`timeFilterWrap`}>
@@ -82,13 +112,26 @@ export const TimeFilter = () => {
                             <div 
                                 className={`monthSelect ${monthIsActive ? '' : 'hiddenMonth'}`}
                                 key={`${el}_${i}`}
-                                onClick={handleMonth}>
+                                onClick={handleMonth}
+                                data-month-id={i + 1}>
                                     {el}
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className={`yearWrap`}>{`YEAR`}</div>
+                <div className={`yearWrap`}>
+                    <div className={`yearSelect ${yearIsActive ? 'activeTimeFilter' : ''}`} onClick={handleStatsYear}>{year}</div>
+                    <div className={`yearDropdown`}>
+                        {arrayYears && arrayYears.map((el, i) => (
+                            <div 
+                                className={`yearSelect ${yearIsActive ? '' : 'hiddenMonth'}`}
+                                key={`${el}_${i}`}
+                                onClick={handleYear}>
+                                    {el}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );
