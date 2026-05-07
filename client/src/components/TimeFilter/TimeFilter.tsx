@@ -69,6 +69,7 @@ export const TimeFilter = () => {
         const selectedMonth = e.currentTarget.textContent;
         const monthId = Number(e.currentTarget.dataset.monthId);
         setMonth(selectedMonth);
+        setYear(String(currentYear));
         setMonthHidden();
         const data = await getStatsMonth(monthId, currentYear);
         setStats(data);
