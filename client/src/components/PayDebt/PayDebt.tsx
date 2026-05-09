@@ -19,7 +19,7 @@ export const PayDebt = () => {
     return (
         <>
             <div>
-                {role !== 'manufacturer' ?
+                {role === 'manufacturer' ?
                 <div className={`manufacturerWrap`}>
                     <button className={`manufacturerBtn`}>
                         {`PENDING PAYMENTS`}
