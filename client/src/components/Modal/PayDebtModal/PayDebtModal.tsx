@@ -22,6 +22,7 @@ export const PayDebtModal = ({onClose}: Props) => {
     const handleSendPayment = () => {
         if (!amount) return;
         sendPayment(Number(amount));
+        onClose();
     };
 
     return (
