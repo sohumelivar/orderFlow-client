@@ -13,7 +13,9 @@ type Props = {
 export const PayDebtModal = ({onClose}: Props) => {
     const stats = useStatsStore((state) => state.stats);
     const [amount, setAmount] = useState('');
-    const setTimeFilter = useTimeFilterStore((state) => state.setTimeFilter);
+    const state = useTimeFilterStore((state) => state);
+    console.log('state : ', state);
+    
 
     const handleAmountValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAmount(e.target.value);
@@ -23,7 +25,6 @@ export const PayDebtModal = ({onClose}: Props) => {
         if (!amount) return;
         sendPayment(Number(amount));
         getStatsAllTime();
-        setTimeFilter('allTimeIsActive');
         onClose();
     };
 
