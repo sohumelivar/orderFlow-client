@@ -3,6 +3,8 @@ import Wallet from '../../../assets/icons/wallet.svg?react';
 import { useStatsStore } from '../../../store/statsStore';
 import { useState } from 'react';
 import { sendPayment } from '../../../api/payments';
+import { getStatsAllTime } from '../../../api/stats';
+import { useTimeFilterStore } from '../../../store/timeFilterStore';
 
 type Props = {
     onClose: () => void;
@@ -11,9 +13,7 @@ type Props = {
 export const PayDebtModal = ({onClose}: Props) => {
     const stats = useStatsStore((state) => state.stats);
     const [amount, setAmount] = useState('');
-
-    console.log('stats: ', stats);
-    
+    const setTimeFilter = useTimeFilterStore((state) => state.setTimeFilter);
 
     const handleAmountValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAmount(e.target.value);
@@ -22,6 +22,8 @@ export const PayDebtModal = ({onClose}: Props) => {
     const handleSendPayment = () => {
         if (!amount) return;
         sendPayment(Number(amount));
+        getStatsAllTime();
+        setTimeFilter('allTimeIsActive');
         onClose();
     };
 
