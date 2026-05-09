@@ -1,5 +1,6 @@
 import { api } from './axios';
 import { tokenService } from './token';
+import { userRole } from './userRole';
 
 type AuthResponse = {
     accessToken: string;
@@ -14,5 +15,6 @@ export const authWithTelegram = async (initData: string): Promise<AuthResponse> 
     const response = await api.post('/auth/telegram', {initData});
     const data = response.data as AuthResponse;
     tokenService.setToken(data.accessToken);
+    userRole.setUserRole(data.user.role);
     return data;
 };

@@ -6,6 +6,7 @@ import Wallet from '../../assets/icons/wallet.svg?react';
 import Alert from '../../assets/icons/triangle-alert.svg?react';
 import Clock from '../../assets/icons/clock.svg?react';
 import { TimeFilter } from '../../components/TimeFilter/TimeFilter';
+import { PayDebt } from '../../components/PayDebt/PayDebt';
 
 export const StatsPage = () => {
     const stats = useStatsStore((state) => state.stats);
@@ -75,6 +76,7 @@ export const StatsPage = () => {
 
             </div>
             <TimeFilter />
+            <PayDebt />
 
         </div>
     );
