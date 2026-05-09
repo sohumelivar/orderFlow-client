@@ -1,0 +1,135 @@
+.payDebtModalWrap {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-dark);
+    color: white;
+}
+
+.walletCloseBtnWrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.payDebtWalletWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-green);
+    border-radius: 4px;
+    border: 1px solid var(--color-status-completed-border);
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.payDebtModalWallet {
+    width: 20px;
+    height: 20px;
+    color: var(--color-status-completed-border);
+}
+
+.payDebtModalCloseXBtn {
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    color: var(--color-gray-1);
+    font-weight: 1000;
+    font-size: 20px;
+}
+
+.currentDebtWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    height: 60px;
+    border: 1px solid var(--color-button-cancel-border);
+    border-radius: 4px;
+    background-color: var(--color-red-1);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.currentDebtValue {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 24px;
+    color: var(--color-button-cancel-border);
+    font-weight: 700
+}
+
+.currentDebtTitle {
+    color: var(--color-gray-1);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+.paymentAmountTitle {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--color-gray-1);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+.payDebtModalAmountInput {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    background-color: var(--color-gray-3);
+    border: none;
+    border-radius: 4px;
+    height: 60px;
+    border: 1px solid var(--color-gray-1);
+    text-align: center;
+    font-size: 28px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    color: var(--color-gray-1);
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.payDebtModalBtnsWrap {
+    display: flex;
+    margin: 20px;
+    gap: 10px;
+}
+
+.payDebtModalCancel {
+    border: 1px solid var(--color-gray-1);
+    background-color: var(--color-gray-3);
+    color: var(--color-gray-1);
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+}
+
+.payDebtModalSendPaymentWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    background-color: var(--color-status-completed-border);
+    color: var(--color-bg-dark);
+}
+
+.payDebtModalWalletTwo {
+    width: 16px;
+    height: 16px;
+}
