@@ -14,7 +14,6 @@ export const CreateNewOrderButton = () => {
     const handleCreateOrder = async () => {
         try {
             const response = await  createOrder(newOrder);
-            console.log('response: ', response);
             addOrder(response.order);
             resetNewOrder();
             navigate('/');

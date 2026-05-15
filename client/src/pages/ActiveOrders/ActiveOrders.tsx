@@ -47,7 +47,7 @@ export const ActiveOrdersPage = () => {
     };
 
     return (
-        <>
+        <>  
             <div className='orderList'>
                 <div className='headerWrapper'>
                     <div className='active-page-header'>
@@ -57,23 +57,29 @@ export const ActiveOrdersPage = () => {
                         {orders.length === 1 ? `${orders.length} ORDER` : `${orders.length} ORDERS`}
                     </div>
                 </div>
-                {orders.map((order) => (
-                    <OrderCard 
-                        key={order.id}
-                        order={order}
-                        deleteOrderModal={deleteOrderModal}
-                    />
-                ))}
+                    {orders?.length === 0 ? (
+                        <div className="empty-orders">
+                            No active orders
+                        </div>
+                        ) : (
+                        orders.map((order) => (
+                            <OrderCard
+                                key={order.id}
+                                order={order}
+                                deleteOrderModal={deleteOrderModal}
+                            />
+                        ))
+                    )}
             </div>
             <div>
                 <Modal isOpen={!!modalContent}>
                     {modalContent}
                 </Modal >
                 <Modal isOpen={modalIsOpen}>
-                    {<CompleteOrderModal />}
+                    <CompleteOrderModal />
                 </Modal>
                 <Modal isOpen={commentModalIsOpen}>
-                    {<CommentModal />}
+                    <CommentModal />
                 </Modal>
             </div>
 
