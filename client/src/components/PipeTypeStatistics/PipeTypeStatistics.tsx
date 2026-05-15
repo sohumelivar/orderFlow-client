@@ -4,7 +4,6 @@ import { useStatsStore } from '../../store/statsStore';
 
 export const PipeTypeStatistics = () => {
     const orders = useStatsStore((state) => state.stats?.pipe_type_statistics.orders);
-    console.log('pipeTypeStatistics: ', orders);
     const total = useStatsStore((state) => state.stats?.pipe_type_statistics.total);
     
     return (
@@ -20,7 +19,7 @@ export const PipeTypeStatistics = () => {
                 <div className={`amountTitle`}>{`AMOUNT`}</div>
             </div>
             {orders && orders.map((el) => (
-                <div className={`sheetValues`}>
+                <div key={`${el.amount}*${el.quantity}`} className={`sheetValues`}>
                     <div className={`sizeTitle stValue`}>{el.display_name}</div>
                     <div className={`qtyTitle qtValue`}>{el.quantity} pcs</div>
                     <div className={`metersTitle mValue`}>{el.total_meter} m</div>

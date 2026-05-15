@@ -56,7 +56,7 @@
 }
 
 .qtyTitle, .metersTitle, .amountTitle {
-    text-align: center;
+    text-align: left;
 }
 
 .aValue {
