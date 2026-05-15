@@ -8,6 +8,7 @@ import Clock from '../../assets/icons/clock.svg?react';
 import { TimeFilter } from '../../components/TimeFilter/TimeFilter';
 import { PayDebt } from '../../components/PayDebt/PayDebt';
 import { PipeTypeStatistics } from '../../components/PipeTypeStatistics/PipeTypeStatistics';
+import { PaymentHistory } from '../../components/PaymentHistory/PaymentHistory';
 
 export const StatsPage = () => {
     const stats = useStatsStore((state) => state.stats);
@@ -79,6 +80,7 @@ export const StatsPage = () => {
             <TimeFilter />
             <PayDebt />
             <PipeTypeStatistics />
+            <PaymentHistory />
         </div>
     );
 };
