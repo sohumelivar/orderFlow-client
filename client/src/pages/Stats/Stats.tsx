@@ -7,6 +7,7 @@ import Alert from '../../assets/icons/triangle-alert.svg?react';
 import Clock from '../../assets/icons/clock.svg?react';
 import { TimeFilter } from '../../components/TimeFilter/TimeFilter';
 import { PayDebt } from '../../components/PayDebt/PayDebt';
+import { PipeTypeStatistics } from '../../components/PipeTypeStatistics/PipeTypeStatistics';
 
 export const StatsPage = () => {
     const stats = useStatsStore((state) => state.stats);
@@ -77,7 +78,7 @@ export const StatsPage = () => {
             </div>
             <TimeFilter />
             <PayDebt />
-
+            <PipeTypeStatistics />
         </div>
     );
 };

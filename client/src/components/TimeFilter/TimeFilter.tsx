@@ -9,7 +9,7 @@ import { useTimeFilterStore } from '../../store/timeFilterStore';
 import './TimeFilter.css';
 import { getArrayMonths } from '../../utils/getArrayMonths';
 import { getArrayYears } from '../../utils/getArrayYears';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const TimeFilter = () => {
     const setStats = useStatsStore((state) => state.setStats);
@@ -24,6 +24,10 @@ export const TimeFilter = () => {
     const [year, setYear] = useState('YEAR');
     const setMonthHidden = useTimeFilterStore((state) => state.setMonthHidden);
     const setYearHidden = useTimeFilterStore((state) => state.setYearHidden);
+
+    useEffect(() => {
+        setTimeFilter('allTimeIsActive');
+    }, [])
 
     
 
