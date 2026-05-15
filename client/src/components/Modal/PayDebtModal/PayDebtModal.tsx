@@ -4,7 +4,6 @@ import { useStatsStore } from '../../../store/statsStore';
 import { useState } from 'react';
 import { sendPayment } from '../../../api/payments';
 import { getStatsAllTime } from '../../../api/stats';
-import { useTimeFilterStore } from '../../../store/timeFilterStore';
 
 type Props = {
     onClose: () => void;
@@ -13,18 +12,15 @@ type Props = {
 export const PayDebtModal = ({onClose}: Props) => {
     const stats = useStatsStore((state) => state.stats);
     const [amount, setAmount] = useState('');
-    const state = useTimeFilterStore((state) => state);
-    console.log('state : ', state);
-    
 
     const handleAmountValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAmount(e.target.value);
     };
 
-    const handleSendPayment = () => {
+    const handleSendPayment = async () => {
         if (!amount) return;
-        sendPayment(Number(amount));
-        getStatsAllTime();
+        await sendPayment(Number(amount));
+        await getStatsAllTime();
         onClose();
     };
 
