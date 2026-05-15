@@ -7,19 +7,24 @@ import Clock from '../../assets/icons/clock.svg?react';
 export const PaymentHistory = () => {
     const paymentHistory = useStatsStore((state) => state.stats?.payment_history);
 
-    console.log(paymentHistory);
-    
-
     return (
         <div className={`paymentHistoryWrapp`}>
             <div className={`paymentHistoryTitle`}>
                 {'PAYMENT HISTORY'}
             </div>
             {paymentHistory && paymentHistory.map((el) => (
-                <div key={el.id} className={`pendingHistoryBlockWrapp`}>
+                <div key={`${el.created_at || el.date}_${el.amount}`} className={`pendingHistoryBlockWrapp`}>
                     <div className={`phLeftSide`}>
-                        <div className={`phCreatedValue`}>{el?.created_at?.split('T')[0]}</div>
-                        <div className={`phAmountValue`}>{`₪ ${el.amount}`}</div>
+                        {el?.date ? 
+                            (
+                                <div className={`phCreatedValue`}>{el?.date?.split('T')[0]}</div>
+                            )
+                            :
+                            (
+                                <div className={`phCreatedValue`}>{el?.created_at?.split('T')[0]}</div>
+                            )
+                        }
+                        <div className={`phAmountValue`}>{`₪ ${Number(el.amount)}`}</div>
                     </div>
                     <div className={`phRightSide`}>
                         {el.status === 'rejected' && 

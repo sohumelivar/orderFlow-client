@@ -4,6 +4,7 @@ export type PaymentType = {
     amount: string;
     status: 'accepted' | 'rejected' | 'pending';
     created_at: string;
+    date?: string;
 };
 
 export type PendingPayment = {
