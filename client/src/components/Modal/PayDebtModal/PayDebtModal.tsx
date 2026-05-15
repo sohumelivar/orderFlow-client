@@ -7,11 +7,12 @@ import { getStatsAllTime } from '../../../api/stats';
 
 type Props = {
     onClose: () => void;
-}
+};
 
 export const PayDebtModal = ({onClose}: Props) => {
     const stats = useStatsStore((state) => state.stats);
     const [amount, setAmount] = useState('');
+    const setStats = useStatsStore((state) => state.setStats);
 
     const handleAmountValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAmount(e.target.value);
@@ -20,7 +21,8 @@ export const PayDebtModal = ({onClose}: Props) => {
     const handleSendPayment = async () => {
         if (!amount) return;
         await sendPayment(Number(amount));
-        await getStatsAllTime();
+        const data = await getStatsAllTime();
+        setStats(data);
         onClose();
     };
 
