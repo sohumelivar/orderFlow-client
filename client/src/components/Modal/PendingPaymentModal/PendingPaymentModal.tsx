@@ -11,8 +11,10 @@ type Props = {
 export const PendingPaymentModal = ({onClose}: Props) => {
     const stats = useStatsStore((state) => state.stats);
     const pendingPayments = stats?.payment_history.filter((el) => el.status === 'pending');
-    console.log('pendingPayments', pendingPayments);
-    
+
+    if (!pendingPayments?.length) {
+        onClose();
+    };
     
     return (
         <div className={`pendingPaymentModalWrap`}>

@@ -26,7 +26,7 @@ export const PayDebt = () => {
         <>
             <div>
                 {role === 'manufacturer' ?
-                <div className={`manufacturerWrap`} onClick={handlePendingPaymentModal}>
+                <div className={`manufacturerWrap`} onClick={pendingPayments?.length ? handlePendingPaymentModal : undefined}>
                     <Clock />
                     <div>{`PENDING PAYMENTS (${pendingPayments?.length})`}</div>
                 </div>  

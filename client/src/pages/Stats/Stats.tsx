@@ -60,7 +60,7 @@ export const StatsPage = () => {
                     </div>
                     <div className='infoWrapp'>
                         <div className={`titleBlockStats`}>OUTSTANDING DEBT</div>
-                        <div className={`valueBlockStats`}>{`₪ -${stats?.summary.outstanding_debt}`}</div>
+                        <div className={`valueBlockStats`}>{`₪ ${stats?.summary.outstanding_debt <= 0 ? stats?.summary.outstanding_debt : `-${stats?.summary.outstanding_debt}`}`}</div>
                     </div>
                 </div>
 
